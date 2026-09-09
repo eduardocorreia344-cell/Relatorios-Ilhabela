@@ -1,0 +1,17 @@
+{
+  "periodo": {"inicio": "2026-08-10", "fim": "2026-09-09", "tipo": "mensal"},
+  "meta": {
+    "campanha_id": "120248791202240411",
+    "gasto_total": 1579.48,
+    "leads_total": 93,
+    "cpl_medio": 16.98,
+    "impressoes": 27358,
+    "frequencia_max": 1.81
+  },
+  "clint": {
+    "agendamento": {"total": 116, "atribuidos_meta": 102, "qualificado": 75, "visita_agendada_ou_realizada": 0, "proposta": 0, "perdido": 3},
+    "pos_visita": {"total": 3, "proposta": 3, "negociacao": 0, "fechamento": 0},
+    "reativacao": {"total": 117, "nunca_alcancado": 97, "qualificado_sem_agendamento": 17, "visitou_nao_fechou": 2, "nao_compareceu": 1},
+    "vendas_periodo": 0
+  }
+}
