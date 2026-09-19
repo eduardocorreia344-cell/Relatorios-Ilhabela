@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilha Bela Itacimirim Villages — Relatório Semanal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#08201E;
+    --bg-panel:#0E4D49;
+    --bg-panel-2:#0c3f3c;
+    --accent:#C4A46A;
+    --accent-strong:#D9BC85;
+    --teal:#2FB894;
+    --rust:#D9793F;
+    --critical:#E2726B;
+    --good:#3FC79A;
+    --text-on-dark:#FBF9F3;
+    --text-on-dark-muted:#B9D2CC;
+    --border-soft:rgba(196,164,106,0.35);
+    --font-display:'Playfair Display', Georgia, serif;
+    --font-body:'Inter', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg-deep);color:var(--text-on-dark);font-family:var(--font-body);line-height:1.5;}
+  .page{max-width:1100px;margin:0 auto;padding:0 24px 80px;}
+  svg{display:block;}
+
+  /* ---------- CAPA ---------- */
+  .cover{padding:80px 24px 60px;text-align:center;background:radial-gradient(ellipse at top, rgba(196,164,106,0.16), transparent 60%),var(--bg-deep);border-bottom:1px solid var(--border-soft);}
+  .cover-eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px;}
+  .cover h1{font-family:var(--font-display);font-style:italic;font-weight:700;font-size:58px;line-height:1.05;margin:0 0 8px;}
+  .cover .sub{font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--accent);margin:0 0 30px;}
+  .period-badge{display:inline-block;background:rgba(196,164,106,0.14);border:1px solid var(--border-soft);border-radius:30px;padding:8px 22px;font-size:14px;font-weight:700;letter-spacing:.02em;margin-bottom:28px;}
+  .cover-meta{display:inline-flex;gap:36px;flex-wrap:wrap;justify-content:center;padding-top:24px;border-top:1px solid var(--border-soft);}
+  .cover-meta div{text-align:left;}
+  .cover-meta .label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-on-dark-muted);margin-bottom:4px;}
+  .cover-meta .value{font-size:15px;font-weight:700;}
+
+  section{padding:52px 0;border-bottom:1px solid rgba(196,164,106,0.18);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 10px;}
+  h2{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:34px;margin:0 0 24px;}
+  h3{font-size:16px;font-weight:800;margin:0 0 16px;color:var(--accent);}
+
+  .verdict-box{background:var(--bg-panel);border:1px solid var(--border-soft);border-left:5px solid var(--accent);border-radius:12px;padding:30px 34px;font-size:18px;line-height:1.7;}
+  .verdict-box strong{color:var(--accent-strong);}
+
+  .alert-box{background:rgba(226,114,107,0.14);border:1px solid rgba(226,114,107,0.45);border-radius:12px;padding:22px 26px;margin-bottom:28px;display:flex;gap:16px;align-items:flex-start;}
+  .alert-box .icon{flex:0 0 auto;width:36px;height:36px;}
+  .alert-box .body h4{margin:0 0 6px;font-size:15px;color:#F5C9C4;}
+  .alert-box .body p{margin:0;font-size:13.5px;color:#EFC9C4;line-height:1.55;}
+
+  /* ---------- STAT TILES ---------- */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:30px;}
+  .stat-tile{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:22px 20px 18px;position:relative;overflow:hidden;}
+  .stat-tile .stat-icon{position:absolute;top:16px;right:16px;width:22px;height:22px;}
+  .stat-tile .stat-label{font-size:12px;color:var(--text-on-dark-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;font-weight:600;}
+  .stat-tile .stat-value{font-size:34px;font-weight:900;color:var(--text-on-dark);line-height:1;}
+  .stat-tile .stat-trend{margin-top:10px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:5px;}
+  .stat-tile .stat-note{font-size:12px;color:var(--text-on-dark-muted);margin-top:8px;line-height:1.4;}
+  .stat-tile.good{border-left:4px solid var(--good);}
+  .stat-tile.flag{border-left:4px solid var(--critical);}
+  .stat-tile.neutral{border-left:4px solid var(--accent);}
+  .trend-up{color:var(--good);}
+  .trend-down{color:var(--critical);}
+
+  /* ---------- FUNNEL ---------- */
+  .funnel-card{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:30px 32px;margin-bottom:22px;}
+  .funnel-title{font-size:15px;font-weight:800;color:var(--text-on-dark);margin-bottom:2px;}
+  .funnel-sub{font-size:12.5px;color:var(--text-on-dark-muted);margin-bottom:26px;}
+  .funnel-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
+  .funnel-row:last-child{margin-bottom:0;}
+  .funnel-label{flex:0 0 168px;font-size:13.5px;font-weight:700;color:var(--text-on-dark);text-align:right;}
+  .funnel-bar-track{flex:1;background:rgba(0,0,0,0.18);border-radius:8px;height:38px;position:relative;overflow:hidden;}
+  .funnel-bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;transition:width .3s;min-width:44px;}
+  .funnel-bar-fill span{font-size:13px;font-weight:800;color:#062120;white-space:nowrap;}
+  .funnel-bar-fill.on-dark span{color:#fff;}
+  .funnel-pct{flex:0 0 52px;font-size:12.5px;color:var(--text-on-dark-muted);font-weight:700;}
+
+  /* ---------- TABLES ---------- */
+  .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border-soft);margin-bottom:24px;}
+  table{width:100%;border-collapse:collapse;background:var(--bg-panel-2);font-size:13.5px;}
+  thead th{text-align:left;padding:13px 16px;background:rgba(196,164,106,0.14);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border-soft);}
+  tbody td{padding:12px 16px;border-bottom:1px solid rgba(196,164,106,0.1);color:var(--text-on-dark);white-space:normal;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:rgba(196,164,106,0.06);}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:20px;font-size:11.5px;font-weight:700;}
+  .pill-good{background:rgba(63,199,154,0.2);color:#8FEACB;}
+  .pill-warn{background:rgba(226,114,107,0.18);color:#F5B4AF;}
+  .pill-muted{background:rgba(185,210,204,0.12);color:var(--text-on-dark-muted);}
+
+  .callout{background:rgba(217,121,63,0.14);border:1px solid rgba(217,121,63,0.4);border-radius:10px;padding:16px 20px;font-size:13.5px;color:#F5DAC4;margin:16px 0 0;line-height:1.55;}
+  .callout.info{background:rgba(47,184,148,0.12);border-color:rgba(47,184,148,0.4);color:#CFF2E5;}
+  .callout strong{color:var(--text-on-dark);}
+
+  .cross-table td:nth-child(1){width:22%;font-weight:600;}
+  .cross-table td:nth-child(2){width:32%;}
+  .cross-table td.q{font-style:italic;color:var(--text-on-dark-muted);font-size:12.5px;line-height:1.5;}
+
+  .action-list{list-style:none;padding:0;margin:0;counter-reset:action;}
+  .action-item{counter-increment:action;background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:22px 24px 22px 68px;margin-bottom:16px;position:relative;}
+  .action-item.urgent{border-color:rgba(226,114,107,0.5);background:rgba(226,114,107,0.08);}
+  .action-item::before{content:counter(action);position:absolute;left:22px;top:22px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--bg-deep);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .action-item.urgent::before{background:var(--critical);}
+  .action-item h4{margin:0 0 7px;font-size:16px;}
+  .action-item p{margin:0 0 10px;font-size:13.5px;color:var(--text-on-dark-muted);line-height:1.6;}
+  .action-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;}
+  .action-meta span{color:var(--accent);font-weight:800;}
+
+  footer{padding:44px 24px 54px;background:var(--bg-panel-2);font-size:12.5px;color:var(--text-on-dark-muted);}
+  footer h4{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;font-weight:800;}
+  footer .foot-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;}
+  footer .signature{max-width:1100px;margin:38px auto 0;padding-top:24px;border-top:1px solid rgba(196,164,106,0.25);font-family:var(--font-display);font-style:italic;font-size:17px;color:var(--accent);text-align:center;}
+  footer ul{margin:0;padding-left:18px;}
+  footer li{margin-bottom:7px;line-height:1.5;}
+
+  @media (max-width:640px){
+    .funnel-label{flex-basis:110px;font-size:12px;}
+    .cover h1{font-size:42px;}
+  }
+  @media print{body{background:#fff;}section{break-inside:avoid;}}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-eyebrow">Provecta VGV · Relatório de Performance</div>
+  <h1>Ilha Bela</h1>
+  <div class="sub">Itacimirim Villages</div>
+  <div class="period-badge">📅 Relatório Semanal — 12/09 a 19/09/2026</div>
+  <div class="cover-meta">
+    <div><div class="label">Data de geração</div><div class="value">19/09/2026</div></div>
+    <div><div class="label">Analista</div><div class="value">Gabriel Goto — CRECI 37266-BA</div></div>
+    <div><div class="label">Empreendedor</div><div class="value">PRIMOR Empreendimentos</div></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <section>
+    <p class="section-tag">01 · Resumo executivo</p>
+    <h2>O veredito da semana</h2>
+
+    <div class="alert-box">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#E2726B" stroke-width="2"/><path d="M12 7v6" stroke="#E2726B" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.3" fill="#E2726B"/></svg>
+      <div class="body">
+        <h4>Sem dado de mídia nesta leitura</h4>
+        <p>A API da Meta bloqueou o acesso do app ("API access blocked") no momento desta leitura — não é limite de permissão, é bloqueio total, inclusive no endpoint mais básico. Não dá pra saber gasto, CPL ou frequência desta semana até isso ser resolvido do lado da conta de anúncios. O painel abaixo mostra só o que a Clint permite ver.</p>
+      </div>
+    </div>
+
+    <div class="verdict-box">
+      <strong>Sinal comercial positivo, mas amostra pequena.</strong> Pela primeira vez desde que começamos a medir, negócios estão avançando até <strong>"Visita Realizada"</strong> — 5 dos 14 negócios abertos nesta semana (36%), contra zero em todo o mês anterior. É um avanço real de disciplina no board. Mas o volume da semana (14 negócios) é baixo — menos da metade do ritmo diário do mês passado — e sem o lado da mídia não dá pra saber se é queda de entrega ou só uma semana mais fraca.
+    </div>
+  </section>
+
+  <!-- ============ PAINEL DE MÍDIA ============ -->
+  <section>
+    <p class="section-tag">02 · Painel de mídia</p>
+    <h2>Meta Ads</h2>
+    <div class="alert-box">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#E2726B" stroke-width="2"/><path d="M12 7v6" stroke="#E2726B" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.3" fill="#E2726B"/></svg>
+      <div class="body">
+        <h4>Indisponível — API bloqueada</h4>
+        <p>Sem gasto, CPL, CPM, CTR ou frequência desta semana. Última leitura válida: mês encerrado em 09/09/2026 (CPL R$ 16,98, sem sinal de fadiga). Resolver o acesso é a ação nº1 desta semana — ver plano de ação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAINEL COMERCIAL ============ -->
+  <section>
+    <p class="section-tag">03 · Painel comercial</p>
+    <h2>Funil Clint — Agendamento (entrada de lead novo)</h2>
+
+    <div class="stat-grid">
+      <div class="stat-tile neutral">
+        <div class="stat-label">Negócios abertos</div>
+        <div class="stat-value">14</div>
+        <div class="stat-trend trend-down">↓ 2,0/dia vs 3,9/dia no mês anterior</div>
+      </div>
+      <div class="stat-tile good">
+        <div class="stat-label">Visita Realizada</div>
+        <div class="stat-value">5</div>
+        <div class="stat-trend trend-up">↑ 0% no mês anterior → 36% agora</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-label">Atribuídos a um anúncio</div>
+        <div class="stat-value">8 <span style="font-size:16px;color:var(--text-on-dark-muted);">/ 14</span></div>
+        <div class="stat-note">57% — inclui anúncio novo "Vídeo Patrícia 1 — Cópia"</div>
+      </div>
+      <div class="stat-tile flag">
+        <div class="stat-label">Vendas na semana</div>
+        <div class="stat-value">0</div>
+      </div>
+    </div>
+
+    <div class="funnel-card">
+      <div class="funnel-title">Onde os 14 negócios da semana estão agora</div>
+      <div class="funnel-sub">Barras proporcionais ao total — valor e % marcados diretamente, sem precisar passar o mouse</div>
+
+      <div class="funnel-row">
+        <div class="funnel-label">Visita Realizada</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:100%;background:linear-gradient(90deg,#2FB894,#3FC79A);"><span>5</span></div></div>
+        <div class="funnel-pct">36%</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">D1 (em contato)</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:100%;background:#A9832A;"><span>5</span></div></div>
+        <div class="funnel-pct">36%</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">D2 (em contato)</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:40%;background:#A9832A;"><span>2</span></div></div>
+        <div class="funnel-pct">14%</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">Qualificado</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:20%;background:#1F8F6E;"><span>1</span></div></div>
+        <div class="funnel-pct">7%</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">Entrada</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:20%;background:#6b6b52;"><span>1</span></div></div>
+        <div class="funnel-pct">7%</div>
+      </div>
+    </div>
+    <div class="callout info">
+      <strong>Ressalva sobre "Visita Realizada":</strong> os 5 negócios nessa etapa foram todos criados/atualizados no mesmo dia (14/09) — pode ser um lançamento retroativo em lote do time comercial, não necessariamente 5 visitas ocorridas exatamente naquele dia. É um avanço real de processo mesmo assim; só não dá pra usar como taxa diária de comparecimento ainda.
+    </div>
+    <div class="callout">
+      <strong>1 negócio movido para "Perdido"</strong> nesta semana (etapa D1) — sem motivo estruturado preenchido, mesma lacuna já apontada no relatório anterior.
+    </div>
+
+    <h3 style="margin-top:32px;">Pós Visita e Reativação</h3>
+    <div class="stat-grid">
+      <div class="stat-tile"><div class="stat-label">Pós Visita — negócios na semana</div><div class="stat-value">0</div></div>
+      <div class="stat-tile"><div class="stat-label">Reativação — negócios na semana</div><div class="stat-value">0</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text-on-dark-muted);margin-top:-14px;">Nenhuma atividade nova nesses dois funis nesta semana — nem trabalho de reativação de base antiga, nem avanço de propostas.</p>
+  </section>
+
+  <!-- ============ CRUZAMENTO ============ -->
+  <section>
+    <p class="section-tag">04 · Cruzamento Meta × Clint</p>
+    <h2>Limitado nesta leitura</h2>
+    <div class="table-wrap cross-table">
+      <table>
+        <thead><tr><th>Da Meta</th><th>Do Clint</th><th>Resposta</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill pill-warn">Indisponível</span></td><td>14 negócios abertos, 8 atribuídos a anúncio</td><td class="q">Sem gasto/CPL da semana não dá pra saber se esse volume é caro ou barato — só sabemos que "03" (o anúncio que carregava 89% dos leads no mês) continua ativo, e que surgiu um anúncio novo ("Vídeo Patrícia 1 — Cópia") gerando negócio.</td></tr>
+          <tr><td><span class="pill pill-warn">Indisponível</span></td><td>5/14 em "Visita Realizada"</td><td class="q">Sem saber o CPL da semana, não dá pra dizer se esse avanço veio de lead mais qualificado ou é só o board sendo usado direito agora — as duas coisas ficam bem mais claras assim que a Meta voltar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      Esse cruzamento fica raso enquanto o lado de mídia estiver bloqueado. A leitura completa (qual público/criativo efetivamente anda no funil) só volta na próxima semana, se o acesso for restabelecido.
+    </div>
+  </section>
+
+  <!-- ============ PLANO DE AÇÃO ============ -->
+  <section>
+    <p class="section-tag">05 · Plano de ação</p>
+    <h2>O que fazer até a próxima leitura</h2>
+    <ol class="action-list">
+      <li class="action-item urgent">
+        <h4>1. Resolver o bloqueio de acesso da API da Meta</h4>
+        <p>Ligado ao número: zero dado de mídia nesta semana. Verificar "Ações necessárias" no app do Meta for Developers e no Business Manager — sem isso, o próximo relatório fica cego de novo.</p>
+        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> imediato — antes da próxima leitura</div>
+      </li>
+      <li class="action-item">
+        <h4>2. Manter o registro de "Visita Realizada" no board</h4>
+        <p>Ligado ao número: passou de 0% para 36% em uma semana — é o comportamento certo. Sustentar isso é mais importante que qualquer ajuste de mídia agora.</p>
+        <div class="action-meta"><span>Quem:</span> Comercial / corretores &nbsp;·&nbsp; <span>Quando reavaliar:</span> próxima leitura semanal</div>
+      </li>
+      <li class="action-item">
+        <h4>3. Preencher o motivo de perda do negócio movido para "Perdido" nesta semana</h4>
+        <p>Ligado ao número: 1 negócio em D1 foi perdido sem motivo estruturado registrado — mesma lacuna do relatório anterior, ainda não corrigida.</p>
+        <div class="action-meta"><span>Quem:</span> Comercial / corretores &nbsp;·&nbsp; <span>Quando reavaliar:</span> próxima leitura semanal</div>
+      </li>
+      <li class="action-item">
+        <h4>4. Não tirar conclusão sobre o anúncio novo ("Vídeo Patrícia 1 — Cópia") ainda</h4>
+        <p>Ligado ao número: gerou 4 dos 8 negócios atribuídos da semana, mas sem CPL/CPM disponível não dá pra saber se é resultado bom ou só volume. Aguardar dado de mídia antes de escalar ou pausar.</p>
+        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> quando a API for restabelecida</div>
+      </li>
+    </ol>
+  </section>
+
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h4>Dado que faltou nesta leitura</h4>
+      <ul>
+        <li>Painel de mídia inteiro (gasto, CPL, CPM, CTR, frequência, fase de aprendizado) — API da Meta bloqueada no momento da coleta</li>
+        <li>Cruzamento completo Meta × Clint — depende do dado de mídia acima</li>
+        <li>Histórico de data por etapa na Clint (mesma limitação estrutural já documentada em <code>/dados/formato-clint.md</code>)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Fonte de pesquisa externa usada</h4>
+      <p>Nenhuma pesquisa de mercado externa foi necessária nesta leitura.</p>
+    </div>
+    <div>
+      <h4>Fontes de dado</h4>
+      <p>Clint CRM API (funil Agendamento | Ilhabela), período 12/09–19/09/2026. Última leitura de mídia válida: relatório mensal de 09/09/2026.</p>
+    </div>
+  </div>
+  <div class="signature">Provecta VGV — rigor e honestidade, não otimismo.</div>
+</footer>
+
+</body>
+</html>
