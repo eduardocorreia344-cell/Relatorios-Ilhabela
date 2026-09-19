@@ -1,8 +1,13 @@
 {
   "periodo": {"inicio": "2026-09-12", "fim": "2026-09-19", "tipo": "semanal"},
   "meta": {
-    "indisponivel": true,
-    "motivo": "API access blocked (OAuthException code 200, access_denied) no app Provecta Relatorios Ilha Bela — falha reproduzida até no endpoint /me, não é limite de permissao de anuncios"
+    "campanha_id": "120248791202240411",
+    "gasto_total": 316.81,
+    "leads_total": 9,
+    "cpl_medio": 35.20,
+    "impressoes": 4878,
+    "frequencia_max": 1.37,
+    "notas": "Conjunto 'Familia / Segunda Residencia - 2' foi pausado e substituido por 'Conjunto 2' (criado em 2026-09-18, em fase de aprendizado). Novo anuncio 'Video Patricia 1 - Copia' apareceu no conjunto principal."
   },
   "clint": {
     "agendamento": {"total": 14, "atribuidos_meta": 8, "qualificado": 1, "visita_realizada": 5, "d1": 5, "d2": 2, "entrada": 1, "perdido": 1},

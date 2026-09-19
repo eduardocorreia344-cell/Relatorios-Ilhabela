@@ -29,7 +29,6 @@
   .page{max-width:1100px;margin:0 auto;padding:0 24px 80px;}
   svg{display:block;}
 
-  /* ---------- CAPA ---------- */
   .cover{padding:80px 24px 60px;text-align:center;background:radial-gradient(ellipse at top, rgba(196,164,106,0.16), transparent 60%),var(--bg-deep);border-bottom:1px solid var(--border-soft);}
   .cover-eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:18px;}
   .cover h1{font-family:var(--font-display);font-style:italic;font-weight:700;font-size:58px;line-height:1.05;margin:0 0 8px;}
@@ -49,63 +48,72 @@
   .verdict-box{background:var(--bg-panel);border:1px solid var(--border-soft);border-left:5px solid var(--accent);border-radius:12px;padding:30px 34px;font-size:18px;line-height:1.7;}
   .verdict-box strong{color:var(--accent-strong);}
 
-  .alert-box{background:rgba(226,114,107,0.14);border:1px solid rgba(226,114,107,0.45);border-radius:12px;padding:22px 26px;margin-bottom:28px;display:flex;gap:16px;align-items:flex-start;}
-  .alert-box .icon{flex:0 0 auto;width:36px;height:36px;}
-  .alert-box .body h4{margin:0 0 6px;font-size:15px;color:#F5C9C4;}
-  .alert-box .body p{margin:0;font-size:13.5px;color:#EFC9C4;line-height:1.55;}
+  .alert-box{border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;gap:16px;align-items:flex-start;}
+  .alert-box.crit{background:rgba(226,114,107,0.14);border:1px solid rgba(226,114,107,0.45);}
+  .alert-box.warn{background:rgba(217,121,63,0.14);border:1px solid rgba(217,121,63,0.45);}
+  .alert-box.ok{background:rgba(47,184,148,0.12);border:1px solid rgba(47,184,148,0.4);}
+  .alert-box .icon{flex:0 0 auto;width:32px;height:32px;margin-top:2px;}
+  .alert-box .body h4{margin:0 0 6px;font-size:14.5px;}
+  .alert-box.crit .body h4{color:#F5C9C4;}
+  .alert-box.warn .body h4{color:#F5DAC4;}
+  .alert-box.ok .body h4{color:#CFF2E5;}
+  .alert-box .body p{margin:0;font-size:13.5px;line-height:1.55;color:var(--text-on-dark-muted);}
 
-  /* ---------- STAT TILES ---------- */
-  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:30px;}
-  .stat-tile{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:22px 20px 18px;position:relative;overflow:hidden;}
-  .stat-tile .stat-icon{position:absolute;top:16px;right:16px;width:22px;height:22px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:28px;}
+  .stat-tile{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:22px 20px 18px;position:relative;}
   .stat-tile .stat-label{font-size:12px;color:var(--text-on-dark-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;font-weight:600;}
-  .stat-tile .stat-value{font-size:34px;font-weight:900;color:var(--text-on-dark);line-height:1;}
+  .stat-tile .stat-value{font-size:32px;font-weight:900;color:var(--text-on-dark);line-height:1;}
   .stat-tile .stat-trend{margin-top:10px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:5px;}
   .stat-tile .stat-note{font-size:12px;color:var(--text-on-dark-muted);margin-top:8px;line-height:1.4;}
   .stat-tile.good{border-left:4px solid var(--good);}
   .stat-tile.flag{border-left:4px solid var(--critical);}
+  .stat-tile.warn{border-left:4px solid var(--rust);}
   .stat-tile.neutral{border-left:4px solid var(--accent);}
   .trend-up{color:var(--good);}
   .trend-down{color:var(--critical);}
 
-  /* ---------- FUNNEL ---------- */
-  .funnel-card{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:30px 32px;margin-bottom:22px;}
-  .funnel-title{font-size:15px;font-weight:800;color:var(--text-on-dark);margin-bottom:2px;}
-  .funnel-sub{font-size:12.5px;color:var(--text-on-dark-muted);margin-bottom:26px;}
-  .funnel-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;}
-  .funnel-row:last-child{margin-bottom:0;}
-  .funnel-label{flex:0 0 168px;font-size:13.5px;font-weight:700;color:var(--text-on-dark);text-align:right;}
-  .funnel-bar-track{flex:1;background:rgba(0,0,0,0.18);border-radius:8px;height:38px;position:relative;overflow:hidden;}
-  .funnel-bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;transition:width .3s;min-width:44px;}
-  .funnel-bar-fill span{font-size:13px;font-weight:800;color:#062120;white-space:nowrap;}
-  .funnel-bar-fill.on-dark span{color:#fff;}
-  .funnel-pct{flex:0 0 52px;font-size:12.5px;color:var(--text-on-dark-muted);font-weight:700;}
+  /* ---------- BAR ROWS (funil / ranking) ---------- */
+  .bars-card{background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:28px 30px;margin-bottom:22px;}
+  .bars-title{font-size:15px;font-weight:800;color:var(--text-on-dark);margin-bottom:2px;}
+  .bars-sub{font-size:12.5px;color:var(--text-on-dark-muted);margin-bottom:24px;}
+  .bar-row{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-label{flex:0 0 200px;font-size:13px;font-weight:700;color:var(--text-on-dark);text-align:right;line-height:1.3;}
+  .bar-label small{display:block;font-weight:500;color:var(--text-on-dark-muted);font-size:11px;}
+  .bar-track{flex:1;background:rgba(0,0,0,0.18);border-radius:7px;height:34px;display:flex;align-items:center;overflow:visible;min-width:0;}
+  .bar-fill{height:100%;border-radius:7px;flex:0 0 auto;min-width:6px;}
+  .bar-value{margin-left:10px;font-size:13px;font-weight:800;color:#fff;white-space:nowrap;}
+  .bar-side{flex:0 0 78px;font-size:12px;color:var(--text-on-dark-muted);font-weight:700;text-align:left;}
+  .bar-badge{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:800;background:rgba(196,164,106,0.25);color:var(--accent-strong);vertical-align:middle;}
 
-  /* ---------- TABLES ---------- */
   .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border-soft);margin-bottom:24px;}
   table{width:100%;border-collapse:collapse;background:var(--bg-panel-2);font-size:13.5px;}
-  thead th{text-align:left;padding:13px 16px;background:rgba(196,164,106,0.14);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border-soft);}
-  tbody td{padding:12px 16px;border-bottom:1px solid rgba(196,164,106,0.1);color:var(--text-on-dark);white-space:normal;}
+  thead th{text-align:left;padding:13px 16px;background:rgba(196,164,106,0.14);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border-soft);white-space:nowrap;}
+  tbody td{padding:12px 16px;border-bottom:1px solid rgba(196,164,106,0.1);color:var(--text-on-dark);white-space:nowrap;}
   tbody tr:last-child td{border-bottom:none;}
   tbody tr:hover{background:rgba(196,164,106,0.06);}
+  tbody tr.dim td{opacity:.55;}
   .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:20px;font-size:11.5px;font-weight:700;}
   .pill-good{background:rgba(63,199,154,0.2);color:#8FEACB;}
   .pill-warn{background:rgba(226,114,107,0.18);color:#F5B4AF;}
+  .pill-info{background:rgba(217,121,63,0.2);color:#F5C9A8;}
   .pill-muted{background:rgba(185,210,204,0.12);color:var(--text-on-dark-muted);}
 
   .callout{background:rgba(217,121,63,0.14);border:1px solid rgba(217,121,63,0.4);border-radius:10px;padding:16px 20px;font-size:13.5px;color:#F5DAC4;margin:16px 0 0;line-height:1.55;}
   .callout.info{background:rgba(47,184,148,0.12);border-color:rgba(47,184,148,0.4);color:#CFF2E5;}
   .callout strong{color:var(--text-on-dark);}
 
-  .cross-table td:nth-child(1){width:22%;font-weight:600;}
-  .cross-table td:nth-child(2){width:32%;}
-  .cross-table td.q{font-style:italic;color:var(--text-on-dark-muted);font-size:12.5px;line-height:1.5;}
+  .cross-table td:nth-child(1){width:22%;font-weight:600;white-space:normal;}
+  .cross-table td:nth-child(2){width:32%;white-space:normal;}
+  .cross-table td.q{font-style:italic;color:var(--text-on-dark-muted);font-size:12.5px;line-height:1.5;white-space:normal;}
 
   .action-list{list-style:none;padding:0;margin:0;counter-reset:action;}
   .action-item{counter-increment:action;background:var(--bg-panel);border:1px solid var(--border-soft);border-radius:14px;padding:22px 24px 22px 68px;margin-bottom:16px;position:relative;}
   .action-item.urgent{border-color:rgba(226,114,107,0.5);background:rgba(226,114,107,0.08);}
+  .action-item.hold{border-color:rgba(217,121,63,0.5);background:rgba(217,121,63,0.08);}
   .action-item::before{content:counter(action);position:absolute;left:22px;top:22px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--bg-deep);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
   .action-item.urgent::before{background:var(--critical);}
+  .action-item.hold::before{background:var(--rust);content:"✋";font-size:14px;}
   .action-item h4{margin:0 0 7px;font-size:16px;}
   .action-item p{margin:0 0 10px;font-size:13.5px;color:var(--text-on-dark-muted);line-height:1.6;}
   .action-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;}
@@ -119,7 +127,7 @@
   footer li{margin-bottom:7px;line-height:1.5;}
 
   @media (max-width:640px){
-    .funnel-label{flex-basis:110px;font-size:12px;}
+    .bar-label{flex-basis:110px;font-size:11.5px;}
     .cover h1{font-size:42px;}
   }
   @media print{body{background:#fff;}section{break-inside:avoid;}}
@@ -145,29 +153,116 @@
     <p class="section-tag">01 · Resumo executivo</p>
     <h2>O veredito da semana</h2>
 
-    <div class="alert-box">
-      <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#E2726B" stroke-width="2"/><path d="M12 7v6" stroke="#E2726B" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.3" fill="#E2726B"/></svg>
-      <div class="body">
-        <h4>Sem dado de mídia nesta leitura</h4>
-        <p>A API da Meta bloqueou o acesso do app ("API access blocked") no momento desta leitura — não é limite de permissão, é bloqueio total, inclusive no endpoint mais básico. Não dá pra saber gasto, CPL ou frequência desta semana até isso ser resolvido do lado da conta de anúncios. O painel abaixo mostra só o que a Clint permite ver.</p>
-      </div>
-    </div>
-
     <div class="verdict-box">
-      <strong>Sinal comercial positivo, mas amostra pequena.</strong> Pela primeira vez desde que começamos a medir, negócios estão avançando até <strong>"Visita Realizada"</strong> — 5 dos 14 negócios abertos nesta semana (36%), contra zero em todo o mês anterior. É um avanço real de disciplina no board. Mas o volume da semana (14 negócios) é baixo — menos da metade do ritmo diário do mês passado — e sem o lado da mídia não dá pra saber se é queda de entrega ou só uma semana mais fraca.
+      <strong>CPL subiu mas segue dentro da faixa; o time recriou o conjunto que estava fraco; comercial mantém o avanço da semana passada.</strong> O CPL saltou de R$ 16,98 (mês anterior) para <strong>R$ 35,20</strong> nesta semana — ainda dentro do benchmark (R$ 30–60), mas o volume de leads caiu proporcionalmente mais que o gasto: 9 leads na semana, quando o ritmo do mês anterior projetava algo perto de 22. O time de mídia já reagiu ao problema apontado no relatório passado — pausou o conjunto fraco e recriou um novo ("Conjunto 2", ativo há menos de 24h) — mas esse novo conjunto está em fase de aprendizado e <strong>não deve ser mexido</strong> ainda. Do lado comercial, a disciplina de registrar "Visita Realizada" se manteve (5 dos 14 negócios da semana).
     </div>
   </section>
 
   <!-- ============ PAINEL DE MÍDIA ============ -->
   <section>
     <p class="section-tag">02 · Painel de mídia</p>
-    <h2>Meta Ads</h2>
-    <div class="alert-box">
-      <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#E2726B" stroke-width="2"/><path d="M12 7v6" stroke="#E2726B" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.3" fill="#E2726B"/></svg>
+    <h2>Meta Ads — Leads | Formulário | IlhaBela Itacimirim</h2>
+
+    <div class="stat-grid">
+      <div class="stat-tile"><div class="stat-label">Gasto na semana</div><div class="stat-value">R$ 316,81</div></div>
+      <div class="stat-tile warn"><div class="stat-label">Leads gerados</div><div class="stat-value">9</div><div class="stat-trend trend-down">↓ ritmo bem abaixo do mês anterior</div></div>
+      <div class="stat-tile warn"><div class="stat-label">CPL médio</div><div class="stat-value">R$ 35,20</div><div class="stat-note">Dentro do benchmark (R$ 30–60), mas 2x o mês anterior (R$ 16,98)</div></div>
+      <div class="stat-tile"><div class="stat-label">Impressões</div><div class="stat-value">4.878</div></div>
+      <div class="stat-tile good"><div class="stat-label">Frequência máx.</div><div class="stat-value">1,37</div><div class="stat-note">Gatilho de fadiga: 3,5–4 — sem sinal</div></div>
+    </div>
+
+    <div class="alert-box warn">
+      <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l10 18H2L12 3z" stroke="#E88A4A" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="#E88A4A" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="#E88A4A"/></svg>
       <div class="body">
-        <h4>Indisponível — API bloqueada</h4>
-        <p>Sem gasto, CPL, CPM, CTR ou frequência desta semana. Última leitura válida: mês encerrado em 09/09/2026 (CPL R$ 16,98, sem sinal de fadiga). Resolver o acesso é a ação nº1 desta semana — ver plano de ação.</p>
+        <h4>"Conjunto 2" está em fase de aprendizado — NÃO MEXER</h4>
+        <p>Criado em 18/09/2026 (menos de 24h antes desta leitura), substituindo o conjunto "Família / Segunda Residência — 2" que foi pausado. Os 3 anúncios dele gastaram só R$ 13,08 juntos e ainda não geraram lead — isso é esperado nesse estágio, não é motivo pra pausar ou editar. O campo de status de aprendizado da Meta veio vazio (mesma limitação de sempre), mas a idade do conjunto por si só já indica aprendizado em curso. Reavaliar só depois de acumular mais gasto ou ~7 dias.</p>
       </div>
+    </div>
+
+    <div class="bars-card">
+      <div class="bars-title">Gasto por anúncio</div>
+      <div class="bars-sub">Últimos 7 dias · valor e participação marcados direto na barra</div>
+
+      <div class="bar-row">
+        <div class="bar-label">03<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%;background:#A9832A;"></div><span class="bar-value">R$ 204,45</span></div>
+        <div class="bar-side">65%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Vídeo Patrícia 1 — Cópia<small>Família / Segunda Residência <span class="bar-badge">NOVO</span></small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%;background:#A9832A;"></div><span class="bar-value">R$ 80,85</span></div>
+        <div class="bar-side">26%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">04<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:8%;background:#A9832A;"></div><span class="bar-value">R$ 11,17</span></div>
+        <div class="bar-side">4%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">01<small>Conjunto 2 <span class="bar-badge">EM APRENDIZADO</span></small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:6%;background:#5a6b52;"></div><span class="bar-value">R$ 8,46</span></div>
+        <div class="bar-side">3%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Vídeo Patrícia 2 — Cópia<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%;background:#A9832A;"></div><span class="bar-value">R$ 5,06</span></div>
+        <div class="bar-side">2%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">04<small>Conjunto 2 <span class="bar-badge">EM APRENDIZADO</span></small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:3%;background:#5a6b52;"></div><span class="bar-value">R$ 3,00</span></div>
+        <div class="bar-side">1%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">01<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:2%;background:#A9832A;"></div><span class="bar-value">R$ 2,20</span></div>
+        <div class="bar-side">1%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Vídeo Patrícia 2 — Cópia<small>Conjunto 2 <span class="bar-badge">EM APRENDIZADO</span></small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:2%;background:#5a6b52;"></div><span class="bar-value">R$ 1,62</span></div>
+        <div class="bar-side">1%</div>
+      </div>
+    </div>
+
+    <div class="bars-card">
+      <div class="bars-title">Leads por anúncio</div>
+      <div class="bars-sub">9 leads no total — os 3 anúncios do conjunto novo ainda não geraram nenhum</div>
+      <div class="bar-row">
+        <div class="bar-label">03<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:#1F8F6E;"></div><span class="bar-value">4</span></div>
+        <div class="bar-side">CPL R$ 51,11</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Vídeo Patrícia 1 — Cópia<small>Família / Segunda Residência <span class="bar-badge">NOVO</span></small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:#1F8F6E;"></div><span class="bar-value">4</span></div>
+        <div class="bar-side">CPL R$ 20,21</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">04<small>Família / Segunda Residência</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:#1F8F6E;"></div><span class="bar-value">1</span></div>
+        <div class="bar-side">CPL R$ 11,17</div>
+      </div>
+    </div>
+
+    <h3>Detalhe completo por conjunto / anúncio</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Conjunto</th><th>Anúncio</th><th>Gasto</th><th>Leads</th><th>CPL</th><th>CPM</th><th>CTR</th><th>Freq.</th></tr></thead>
+        <tbody>
+          <tr><td>Família / Segunda Residência</td><td>03</td><td>R$ 204,45</td><td>4</td><td>R$ 51,11</td><td>R$ 63,18</td><td>3,77%</td><td>1,37</td></tr>
+          <tr><td>Família / Segunda Residência</td><td>Vídeo Patrícia 1 — Cópia <span class="pill pill-info">novo</span></td><td>R$ 80,85</td><td>4</td><td>R$ 20,21</td><td>R$ 69,34</td><td>3,00%</td><td>1,31</td></tr>
+          <tr><td>Família / Segunda Residência</td><td>04</td><td>R$ 11,17</td><td>1</td><td>R$ 11,17</td><td>R$ 70,25</td><td>5,03%</td><td>1,29</td></tr>
+          <tr class="dim"><td>Conjunto 2 <span class="pill pill-warn">aprendizado</span></td><td>01</td><td>R$ 8,46</td><td>0</td><td>—</td><td>R$ 51,90</td><td>1,84%</td><td>1,08</td></tr>
+          <tr><td>Família / Segunda Residência</td><td>Vídeo Patrícia 2 — Cópia</td><td>R$ 5,06</td><td>0</td><td>—</td><td>R$ 70,28</td><td>0,00%</td><td>1,06</td></tr>
+          <tr class="dim"><td>Conjunto 2 <span class="pill pill-warn">aprendizado</span></td><td>04</td><td>R$ 3,00</td><td>0</td><td>—</td><td>R$ 83,33</td><td>2,78%</td><td>1,16</td></tr>
+          <tr><td>Família / Segunda Residência</td><td>01</td><td>R$ 2,20</td><td>0</td><td>—</td><td>R$ 88,00</td><td>4,00%</td><td>1,09</td></tr>
+          <tr class="dim"><td>Conjunto 2 <span class="pill pill-warn">aprendizado</span></td><td>Vídeo Patrícia 2 — Cópia</td><td>R$ 1,62</td><td>0</td><td>—</td><td>R$ 77,14</td><td>4,76%</td><td>1,00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <strong>O que mudou desde o mês passado:</strong> o conjunto "Família / Segunda Residência — 2", que no relatório anterior tinha CPM alto e zero leads em dois anúncios, foi <strong>pausado</strong>. Um novo conjunto ("Conjunto 2") foi criado em seu lugar. É uma reação direta ao que foi apontado — mais drástica do que a recomendação de "esperar mais dado", mas dentro do razoável.
     </div>
   </section>
 
@@ -190,49 +285,46 @@
       <div class="stat-tile">
         <div class="stat-label">Atribuídos a um anúncio</div>
         <div class="stat-value">8 <span style="font-size:16px;color:var(--text-on-dark-muted);">/ 14</span></div>
-        <div class="stat-note">57% — inclui anúncio novo "Vídeo Patrícia 1 — Cópia"</div>
+        <div class="stat-note">57% — 4 do "03", 4 do "Vídeo Patrícia 1 — Cópia"</div>
       </div>
-      <div class="stat-tile flag">
-        <div class="stat-label">Vendas na semana</div>
-        <div class="stat-value">0</div>
-      </div>
+      <div class="stat-tile flag"><div class="stat-label">Vendas na semana</div><div class="stat-value">0</div></div>
     </div>
 
-    <div class="funnel-card">
-      <div class="funnel-title">Onde os 14 negócios da semana estão agora</div>
-      <div class="funnel-sub">Barras proporcionais ao total — valor e % marcados diretamente, sem precisar passar o mouse</div>
+    <div class="bars-card">
+      <div class="bars-title">Onde os 14 negócios da semana estão agora</div>
+      <div class="bars-sub">Snapshot no fim do período — não é histórico de fluxo, é onde cada negócio está agora</div>
 
-      <div class="funnel-row">
-        <div class="funnel-label">Visita Realizada</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:100%;background:linear-gradient(90deg,#2FB894,#3FC79A);"><span>5</span></div></div>
-        <div class="funnel-pct">36%</div>
+      <div class="bar-row">
+        <div class="bar-label">Visita Realizada</div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#2FB894,#3FC79A);"></div><span class="bar-value">5</span></div>
+        <div class="bar-side">36%</div>
       </div>
-      <div class="funnel-row">
-        <div class="funnel-label">D1 (em contato)</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:100%;background:#A9832A;"><span>5</span></div></div>
-        <div class="funnel-pct">36%</div>
+      <div class="bar-row">
+        <div class="bar-label">D1 <small>em contato</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:#A9832A;"></div><span class="bar-value">5</span></div>
+        <div class="bar-side">36%</div>
       </div>
-      <div class="funnel-row">
-        <div class="funnel-label">D2 (em contato)</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:40%;background:#A9832A;"><span>2</span></div></div>
-        <div class="funnel-pct">14%</div>
+      <div class="bar-row">
+        <div class="bar-label">D2 <small>em contato</small></div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%;background:#A9832A;"></div><span class="bar-value">2</span></div>
+        <div class="bar-side">14%</div>
       </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Qualificado</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:20%;background:#1F8F6E;"><span>1</span></div></div>
-        <div class="funnel-pct">7%</div>
+      <div class="bar-row">
+        <div class="bar-label">Qualificado</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20%;background:#1F8F6E;"></div><span class="bar-value">1</span></div>
+        <div class="bar-side">7%</div>
       </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Entrada</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill on-dark" style="width:20%;background:#6b6b52;"><span>1</span></div></div>
-        <div class="funnel-pct">7%</div>
+      <div class="bar-row">
+        <div class="bar-label">Entrada</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20%;background:#6b6b52;"></div><span class="bar-value">1</span></div>
+        <div class="bar-side">7%</div>
       </div>
     </div>
     <div class="callout info">
-      <strong>Ressalva sobre "Visita Realizada":</strong> os 5 negócios nessa etapa foram todos criados/atualizados no mesmo dia (14/09) — pode ser um lançamento retroativo em lote do time comercial, não necessariamente 5 visitas ocorridas exatamente naquele dia. É um avanço real de processo mesmo assim; só não dá pra usar como taxa diária de comparecimento ainda.
+      <strong>Ressalva sobre "Visita Realizada":</strong> os 5 negócios nessa etapa foram todos atualizados no mesmo dia (14/09) — pode ser lançamento retroativo em lote, não necessariamente 5 visitas naquele dia exato. É avanço real de processo mesmo assim; só não dá pra usar como taxa diária de comparecimento ainda.
     </div>
     <div class="callout">
-      <strong>1 negócio movido para "Perdido"</strong> nesta semana (etapa D1) — sem motivo estruturado preenchido, mesma lacuna já apontada no relatório anterior.
+      <strong>1 negócio movido para "Perdido"</strong> nesta semana (etapa D1) — sem motivo estruturado preenchido, mesma lacuna já apontada no relatório anterior e ainda não corrigida.
     </div>
 
     <h3 style="margin-top:32px;">Pós Visita e Reativação</h3>
@@ -240,24 +332,26 @@
       <div class="stat-tile"><div class="stat-label">Pós Visita — negócios na semana</div><div class="stat-value">0</div></div>
       <div class="stat-tile"><div class="stat-label">Reativação — negócios na semana</div><div class="stat-value">0</div></div>
     </div>
-    <p style="font-size:13px;color:var(--text-on-dark-muted);margin-top:-14px;">Nenhuma atividade nova nesses dois funis nesta semana — nem trabalho de reativação de base antiga, nem avanço de propostas.</p>
+    <p style="font-size:13px;color:var(--text-on-dark-muted);margin-top:-14px;">Nenhuma atividade nova nesses dois funis nesta semana.</p>
   </section>
 
   <!-- ============ CRUZAMENTO ============ -->
   <section>
     <p class="section-tag">04 · Cruzamento Meta × Clint</p>
-    <h2>Limitado nesta leitura</h2>
+    <h2>Onde a semana aperta</h2>
     <div class="table-wrap cross-table">
       <table>
         <thead><tr><th>Da Meta</th><th>Do Clint</th><th>Resposta</th></tr></thead>
         <tbody>
-          <tr><td><span class="pill pill-warn">Indisponível</span></td><td>14 negócios abertos, 8 atribuídos a anúncio</td><td class="q">Sem gasto/CPL da semana não dá pra saber se esse volume é caro ou barato — só sabemos que "03" (o anúncio que carregava 89% dos leads no mês) continua ativo, e que surgiu um anúncio novo ("Vídeo Patrícia 1 — Cópia") gerando negócio.</td></tr>
-          <tr><td><span class="pill pill-warn">Indisponível</span></td><td>5/14 em "Visita Realizada"</td><td class="q">Sem saber o CPL da semana, não dá pra dizer se esse avanço veio de lead mais qualificado ou é só o board sendo usado direito agora — as duas coisas ficam bem mais claras assim que a Meta voltar.</td></tr>
+          <tr><td>9 leads gerados</td><td>8/14 negócios (57%) atribuídos a um anúncio Ilha Bela</td><td class="q">A atribuição nativa segue funcionando — inclusive pro anúncio novo, que já aparece linkado a 4 negócios no mesmo dia em que passou a rodar.</td></tr>
+          <tr><td>CPL R$ 35,20 (2x o mês anterior)</td><td>5/14 (36%) chegam a "Visita Realizada"</td><td class="q">Mesmo com CPL mais caro, o funil está andando melhor que no mês anterior — sinal de que a qualidade do lead não caiu junto com o volume, mas a amostra (14 negócios) é pequena demais pra confirmar isso com confiança.</td></tr>
+          <tr><td>"03" segue sendo o anúncio mais caro e com mais lead (R$ 204,45 / 4 leads)</td><td>4 negócios atribuídos ao "03" na semana</td><td class="q">Continua sendo o anúncio que efetivamente anda no funil — mesmo público/criativo identificado no relatório mensal.</td></tr>
+          <tr><td>"Conjunto 2" em aprendizado, zero leads</td><td>—</td><td class="q">Não há o que cruzar ainda — é justamente o ponto de "não mexer, aguardar" da doutrina. Não tratar esses zero leads como fracasso do conjunto.</td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout">
-      Esse cruzamento fica raso enquanto o lado de mídia estiver bloqueado. A leitura completa (qual público/criativo efetivamente anda no funil) só volta na próxima semana, se o acesso for restabelecido.
+      <strong>Leitura da semana:</strong> o CPL subiu dentro do aceitável, o funil comercial segue melhorando (mais visitas realizadas), e a reação da mídia ao problema do mês passado já está em andamento (conjunto trocado). Nada aqui pede ação de emergência — pede paciência com o conjunto novo e mais uma semana de dado antes de julgar o CPL mais alto como tendência ou só uma semana ruim.
     </div>
   </section>
 
@@ -266,25 +360,25 @@
     <p class="section-tag">05 · Plano de ação</p>
     <h2>O que fazer até a próxima leitura</h2>
     <ol class="action-list">
-      <li class="action-item urgent">
-        <h4>1. Resolver o bloqueio de acesso da API da Meta</h4>
-        <p>Ligado ao número: zero dado de mídia nesta semana. Verificar "Ações necessárias" no app do Meta for Developers e no Business Manager — sem isso, o próximo relatório fica cego de novo.</p>
-        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> imediato — antes da próxima leitura</div>
+      <li class="action-item hold">
+        <h4>1. Não mexer no "Conjunto 2" — está em fase de aprendizado</h4>
+        <p>Ligado ao número: criado há menos de 24h, R$ 13,08 gastos, zero leads. Editar ou pausar agora reinicia o aprendizado e joga fora o pouco dado acumulado.</p>
+        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> em 7 dias ou quando acumular mais gasto</div>
       </li>
       <li class="action-item">
-        <h4>2. Manter o registro de "Visita Realizada" no board</h4>
-        <p>Ligado ao número: passou de 0% para 36% em uma semana — é o comportamento certo. Sustentar isso é mais importante que qualquer ajuste de mídia agora.</p>
+        <h4>2. Acompanhar o CPL de perto na próxima semana antes de agir</h4>
+        <p>Ligado ao número: R$ 35,20 é o dobro do mês anterior, mas ainda dentro do benchmark (R$ 30–60). Uma semana não é tendência — precisa de mais um ponto de dado pra saber se é ruído ou piora real.</p>
+        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> próxima leitura semanal</div>
+      </li>
+      <li class="action-item">
+        <h4>3. Manter o registro de "Visita Realizada" no board</h4>
+        <p>Ligado ao número: manteve os 36% da semana passada — sustentar isso importa mais que qualquer ajuste de mídia agora.</p>
         <div class="action-meta"><span>Quem:</span> Comercial / corretores &nbsp;·&nbsp; <span>Quando reavaliar:</span> próxima leitura semanal</div>
       </li>
       <li class="action-item">
-        <h4>3. Preencher o motivo de perda do negócio movido para "Perdido" nesta semana</h4>
+        <h4>4. Preencher o motivo de perda do negócio movido para "Perdido" nesta semana</h4>
         <p>Ligado ao número: 1 negócio em D1 foi perdido sem motivo estruturado registrado — mesma lacuna do relatório anterior, ainda não corrigida.</p>
         <div class="action-meta"><span>Quem:</span> Comercial / corretores &nbsp;·&nbsp; <span>Quando reavaliar:</span> próxima leitura semanal</div>
-      </li>
-      <li class="action-item">
-        <h4>4. Não tirar conclusão sobre o anúncio novo ("Vídeo Patrícia 1 — Cópia") ainda</h4>
-        <p>Ligado ao número: gerou 4 dos 8 negócios atribuídos da semana, mas sem CPL/CPM disponível não dá pra saber se é resultado bom ou só volume. Aguardar dado de mídia antes de escalar ou pausar.</p>
-        <div class="action-meta"><span>Quem:</span> Mídia / Provecta &nbsp;·&nbsp; <span>Quando reavaliar:</span> quando a API for restabelecida</div>
       </li>
     </ol>
   </section>
@@ -296,9 +390,9 @@
     <div>
       <h4>Dado que faltou nesta leitura</h4>
       <ul>
-        <li>Painel de mídia inteiro (gasto, CPL, CPM, CTR, frequência, fase de aprendizado) — API da Meta bloqueada no momento da coleta</li>
-        <li>Cruzamento completo Meta × Clint — depende do dado de mídia acima</li>
+        <li>Confirmação direta do status de aprendizado do "Conjunto 2" — inferido pela idade (criado há &lt;24h), campo da Meta veio vazio como sempre</li>
         <li>Histórico de data por etapa na Clint (mesma limitação estrutural já documentada em <code>/dados/formato-clint.md</code>)</li>
+        <li>Casamento individual lead-a-lead entre Meta e Clint por telefone/e-mail — feito por atribuição agregada de campanha</li>
       </ul>
     </div>
     <div>
@@ -307,7 +401,7 @@
     </div>
     <div>
       <h4>Fontes de dado</h4>
-      <p>Clint CRM API (funil Agendamento | Ilhabela), período 12/09–19/09/2026. Última leitura de mídia válida: relatório mensal de 09/09/2026.</p>
+      <p>Meta Marketing API (conta act_1369565881399220, campanha 120248791202240411) e Clint CRM API (funil Agendamento | Ilhabela), período 12/09–19/09/2026.</p>
     </div>
   </div>
   <div class="signature">Provecta VGV — rigor e honestidade, não otimismo.</div>
