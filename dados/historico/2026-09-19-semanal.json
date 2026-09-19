@@ -10,9 +10,12 @@
     "notas": "Conjunto 'Familia / Segunda Residencia - 2' foi pausado e substituido por 'Conjunto 2' (criado em 2026-09-18, em fase de aprendizado). Novo anuncio 'Video Patricia 1 - Copia' apareceu no conjunto principal."
   },
   "clint": {
-    "agendamento": {"total": 14, "atribuidos_meta": 8, "qualificado": 1, "visita_realizada": 5, "d1": 5, "d2": 2, "entrada": 1, "perdido": 1},
-    "pos_visita": {"total": 0},
-    "reativacao": {"total": 0},
+    "agendamento_snapshot_semanal_apenas_novos": {"total": 14, "atribuidos_meta": 8, "qualificado": 1, "visita_realizada": 5, "d1": 5, "d2": 2, "entrada": 1, "perdido": 1},
+    "agendamento_panorama_completo_hoje": {"total_aberto": 121, "d1": 12, "d2": 43, "d3": 21, "qualificado": 33, "visita_agendada": 3, "visita_realizada": 5, "entrada": 1, "perdido_status_open": 3},
+    "atividade_semana": {"negocios_que_mudaram_etapa": 66, "eram_novos": 14, "eram_antigos_que_avancaram": 52},
+    "pos_visita": {"total_aberto": 3, "proposta": 3},
+    "reativacao": {"total_aberto": 117, "movimentacao_semana": 0},
     "vendas_periodo": 0
-  }
+  },
+  "nota_metodologica": "Versao inicial deste relatorio filtrava negocios so por created_at dentro da semana, escondendo 107 negocios mais antigos ainda abertos no funil. Corrigido para reportar o panorama completo (todos os negocios OPEN, independente da data de criacao) como metrica principal, mantendo o corte semanal como metrica complementar de atividade."
 }

@@ -28,3 +28,12 @@ Referência técnica de como puxar dados da Clint pros relatórios Ilha Bela. Do
 3. **Motivo de perda estruturado (`lost_status_id`) frequentemente não é preenchido** mesmo quando o negócio está na etapa "Perdido" — o time move o card no board sem fechar o registro formalmente.
 4. **Nem todo negócio tem atribuição de anúncio** (`fields.ad_name` vazio) — parte relevante do funil principal (Agendamento) vem sem esse campo, provavelmente WhatsApp direto/orgânico, não rastreável até um anúncio específico sem dado adicional.
 5. **A etapa "Qualificado" não tem critério 100% estruturado.** A maioria dos negócios qualificados tem pelo menos um dos três campos de qualificação do contato preenchido, mas nenhum tem os três completos — a qualificação é parcial, não um checklist fechado.
+
+## Erro já cometido — não repetir
+
+**Nunca filtrar o painel comercial só por `created_at` dentro do período do relatório.** Na primeira versão do relatório semanal de 19/09, filtrei os negócios do funil Agendamento só pelos criados nos últimos 7 dias (14 negócios) — isso escondeu os outros 107 negócios mais antigos que continuavam abertos no funil, incluindo todos os que estavam em "Visita Agendada" no momento (nenhum tinha sido criado naquela semana). O usuário percebeu a lacuna e perguntou "cadê as visitas agendadas?".
+
+**Regra corrigida para todo relatório dali em diante:**
+- **Painel comercial principal** = snapshot de TODOS os negócios com `status == "OPEN"` no funil, independente de `created_at`. Essa é a foto real do estado do funil.
+- **Métrica de atividade da semana/mês** = negócios cujo `updated_stage_at` cai dentro do período (mostra o que se moveu, novos e antigos) — é um complemento, nunca o substituto do panorama completo.
+- Nunca apresentar só o corte por `created_at` como se fosse "onde as coisas estão agora" — as duas coisas são perguntas diferentes e precisam aparecer separadas e rotuladas.
