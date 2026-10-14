@@ -1,0 +1,712 @@
+{
+ "panorama_aberto_por_funil_etapa": {
+  "Agendamento": {
+   "D1": 1,
+   "D2": 3,
+   "D3": 14,
+   "D4": 37,
+   "D6": 5,
+   "Qualificado": 26,
+   "Visita Agendada": 1,
+   "No-Show": 1,
+   "Visita Realizada": 5
+  },
+  "Pós Visita": {
+   "Proposta": 4
+  },
+  "Reativação": {
+   "Nunca alcançado": 75,
+   "D1": 14,
+   "D2": 6,
+   "Visitou e não fechou": 1,
+   "Não tem mais interesse": 10,
+   "Deixar para o Ano que vem": 2
+  }
+ },
+ "panorama_aberto_por_corretor": {
+  "Fernanda Araújo": 72,
+  "SEM CORRETOR": 99,
+  "Primor Empreendimentos": 11,
+  "Jose ubaldo gonzaga da silva": 23
+ },
+ "panorama_aberto_corretor_x_funil": {
+  "SEM CORRETOR": {
+   "Reativação": 99
+  },
+  "Primor Empreendimentos": {
+   "Reativação": 9,
+   "Pós Visita": 1,
+   "Agendamento": 1
+  },
+  "Jose ubaldo gonzaga da silva": {
+   "Agendamento": 20,
+   "Pós Visita": 3
+  },
+  "Fernanda Araújo": {
+   "Agendamento": 72
+  }
+ },
+ "status_geral": {
+  "OPEN": 205,
+  "LOST": 75
+ },
+ "won_total": 2,
+ "coorte14d_total": 19,
+ "coorte14d_por_funil": {
+  "Agendamento": 15,
+  "Reativação": 4
+ },
+ "coorte14d_etapa_atual_por_funil": {
+  "Reativação": {
+   "Nunca alcançado": 4
+  },
+  "Agendamento": {
+   "Visita Realizada": 2,
+   "D3": 7,
+   "D4": 3,
+   "D2": 2,
+   "Qualificado": 1
+  }
+ },
+ "coorte14d_status": {
+  "OPEN": 14,
+  "LOST": 5
+ },
+ "coorte14d_por_corretor": {
+  "Jose ubaldo gonzaga da silva": 4,
+  "Fernanda Araújo": 13,
+  "Primor Empreendimentos": 2
+ },
+ "coorte14d_por_ad_name": {
+  "Vídeo Patrícia 2 — Cópia": 2,
+  "04": 5,
+  "03": 12
+ },
+ "coorte14d_por_campaign_name": {
+  "Leads | Formulário | IlhaBela  Itacimirim": 19
+ },
+ "coorte14d_por_dia": {
+  "2026-09-30": 1,
+  "2026-10-01": 1,
+  "2026-10-02": 1,
+  "2026-10-03": 4,
+  "2026-10-04": 3,
+  "2026-10-05": 1,
+  "2026-10-06": 1,
+  "2026-10-07": 1,
+  "2026-10-08": 4,
+  "2026-10-10": 1,
+  "2026-10-11": 1
+ },
+ "coorte14d_hora_entrada": {
+  "02": 1,
+  "07": 1,
+  "08": 1,
+  "09": 3,
+  "10": 1,
+  "11": 1,
+  "12": 1,
+  "13": 1,
+  "14": 2,
+  "16": 1,
+  "17": 2,
+  "18": 1,
+  "21": 2,
+  "22": 1
+ },
+ "coorte14d_dia_semana": {
+  "Sun": 4,
+  "Thu": 5,
+  "Sat": 5,
+  "Mon": 1,
+  "Tue": 1,
+  "Fri": 1,
+  "Wed": 2
+ },
+ "atividade14d_mudaram_etapa": 142,
+ "atividade14d_etapa_destino_por_funil": {
+  "Reativação": {
+   "D1": 19,
+   "Nunca alcançado": 61,
+   "D2": 6,
+   "Não tem mais interesse": 11,
+   "Deixar para o Ano que vem": 2
+  },
+  "Agendamento": {
+   "D6": 5,
+   "D4": 17,
+   "Qualificado": 5,
+   "D2": 3,
+   "Visita Realizada": 3,
+   "D3": 8,
+   "No-Show": 1,
+   "Visita Agendada": 1
+  }
+ },
+ "atividade14d_por_corretor": {
+  "Fernanda Araújo": 67,
+  "SEM CORRETOR": 28,
+  "Primor Empreendimentos": 38,
+  "Jose ubaldo gonzaga da silva": 9
+ },
+ "perdidos14d_total": 49,
+ "perdidos14d_motivo": {
+  "Tentativas esgotadas": 28,
+  "Busca outro produto": 5,
+  "Sem perfil": 8,
+  "Comprou com concorrente": 2,
+  "Compra futura": 1,
+  "Sem interesse": 3,
+  "Comprou com outra empresa": 1,
+  "Não é o momento": 1
+ },
+ "perdidos14d_funil_etapa": {
+  "Reativação / Nunca alcançado": 35,
+  "Agendamento / Qualificado": 1,
+  "Agendamento / D6": 2,
+  "Reativação / D1": 5,
+  "Agendamento / D2": 2,
+  "Agendamento / D4": 2,
+  "Reativação / Não tem mais interesse": 1,
+  "Agendamento / D3": 1
+ },
+ "perdidos14d_por_corretor": {
+  "Fernanda Araújo": 19,
+  "Primor Empreendimentos": 25,
+  "SEM CORRETOR": 4,
+  "Jose ubaldo gonzaga da silva": 1
+ },
+ "perdidos_total_motivo": {
+  "Tentativas esgotadas": 32,
+  "Busca outro produto": 10,
+  "Compra futura": 2,
+  "Sem perfil": 17,
+  "Comprou com concorrente": 2,
+  "Sem interesse": 8,
+  "sem motivo": 1,
+  "Comprou com outra empresa": 2,
+  "Não é o momento": 1
+ },
+ "perdidos_total_funil_etapa": {
+  "Reativação / Nunca alcançado": 61,
+  "Agendamento / Qualificado": 1,
+  "Agendamento / D6": 2,
+  "Reativação / D1": 5,
+  "Agendamento / D2": 2,
+  "Agendamento / D4": 2,
+  "Reativação / Não tem mais interesse": 1,
+  "Agendamento / D3": 1
+ },
+ "perdidos_dias_ate_perda_mediana": 30,
+ "abertos_dias_parado_na_etapa_atual": {
+  "Agendamento / Qualificado": {
+   "n": 26,
+   "mediana": 19,
+   "max": 43,
+   ">7d": 24,
+   ">14d": 19
+  },
+  "Agendamento / D6": {
+   "n": 5,
+   "mediana": 0,
+   "max": 0,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Reativação / D1": {
+   "n": 14,
+   "mediana": 7,
+   "max": 7,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Reativação / D2": {
+   "n": 6,
+   "mediana": 0,
+   "max": 7,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Reativação / Nunca alcançado": {
+   "n": 75,
+   "mediana": 43,
+   "max": 43,
+   ">7d": 75,
+   ">14d": 75
+  },
+  "Agendamento / D4": {
+   "n": 37,
+   "mediana": 14,
+   "max": 18,
+   ">7d": 30,
+   ">14d": 3
+  },
+  "Reativação / Não tem mais interesse": {
+   "n": 10,
+   "mediana": 8,
+   "max": 12,
+   ">7d": 6,
+   ">14d": 0
+  },
+  "Agendamento / Visita Realizada": {
+   "n": 5,
+   "mediana": 3,
+   "max": 30,
+   ">7d": 2,
+   ">14d": 2
+  },
+  "Agendamento / D3": {
+   "n": 14,
+   "mediana": 14,
+   "max": 14,
+   ">7d": 7,
+   ">14d": 0
+  },
+  "Agendamento / D2": {
+   "n": 3,
+   "mediana": -1,
+   "max": 5,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Agendamento / D1": {
+   "n": 1,
+   "mediana": -1,
+   "max": -1,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Pós Visita / Proposta": {
+   "n": 4,
+   "mediana": 43,
+   "max": 43,
+   ">7d": 4,
+   ">14d": 4
+  },
+  "Reativação / Deixar para o Ano que vem": {
+   "n": 2,
+   "mediana": 12,
+   "max": 12,
+   ">7d": 1,
+   ">14d": 0
+  },
+  "Agendamento / No-Show": {
+   "n": 1,
+   "mediana": 0,
+   "max": 0,
+   ">7d": 0,
+   ">14d": 0
+  },
+  "Agendamento / Visita Agendada": {
+   "n": 1,
+   "mediana": 13,
+   "max": 13,
+   ">7d": 1,
+   ">14d": 0
+  },
+  "Reativação / Visitou e não fechou": {
+   "n": 1,
+   "mediana": 43,
+   "max": 43,
+   ">7d": 1,
+   ">14d": 1
+  }
+ },
+ "agendamento_abertos_idade_desde_criacao": {
+  "n": 93,
+  "mediana": 43,
+  ">14d": 76,
+  ">30d": 61
+ },
+ "visitas_com_data_estruturada": [
+  {
+   "deal": "7a6e3ccb",
+   "funil": "Agendamento",
+   "etapa": "D2",
+   "status": "LOST",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-08-31",
+   "visita": "2026-09-18 14:30",
+   "dias_criacao_ate_visita": 17,
+   "ja_passou": true,
+   "ad_name": "Família / Segunda Residência"
+  },
+  {
+   "deal": "b9da850d",
+   "funil": "Agendamento",
+   "etapa": "D3",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-08-31",
+   "visita": "2026-09-18 15:00",
+   "dias_criacao_ate_visita": 17,
+   "ja_passou": true,
+   "ad_name": "Família / Segunda Residência"
+  },
+  {
+   "deal": "f7a4bc5a",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "LOST",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-09-11",
+   "visita": "2026-09-19 09:00",
+   "dias_criacao_ate_visita": 7,
+   "ja_passou": true,
+   "ad_name": null
+  },
+  {
+   "deal": "4fd3fba6",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-09-06",
+   "visita": "2026-09-21 08:30",
+   "dias_criacao_ate_visita": 14,
+   "ja_passou": true,
+   "ad_name": "03"
+  },
+  {
+   "deal": "28745047",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-08-31",
+   "visita": "2026-09-21 09:00",
+   "dias_criacao_ate_visita": 20,
+   "ja_passou": true,
+   "ad_name": null
+  },
+  {
+   "deal": "c59acf05",
+   "funil": "Reativação",
+   "etapa": "D2",
+   "status": "OPEN",
+   "corretor": "Primor Empreendimentos",
+   "criado": "2026-08-31",
+   "visita": "2026-10-02 14:00",
+   "dias_criacao_ate_visita": 31,
+   "ja_passou": true,
+   "ad_name": null
+  },
+  {
+   "deal": "abd7b623",
+   "funil": "Reativação",
+   "etapa": "Não tem mais interesse",
+   "status": "LOST",
+   "corretor": "Primor Empreendimentos",
+   "criado": "2026-08-31",
+   "visita": "2026-10-02 17:30",
+   "dias_criacao_ate_visita": 31,
+   "ja_passou": true,
+   "ad_name": null
+  },
+  {
+   "deal": "3344df46",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-08-31",
+   "visita": "2026-10-06 09:30",
+   "dias_criacao_ate_visita": 35,
+   "ja_passou": true,
+   "ad_name": "Família / Segunda Residência"
+  },
+  {
+   "deal": "0569d777",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-08-31",
+   "visita": "2026-10-06 09:30",
+   "dias_criacao_ate_visita": 35,
+   "ja_passou": true,
+   "ad_name": "Família / Segunda Residência"
+  },
+  {
+   "deal": "20582873",
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-10-01",
+   "visita": "2026-10-07 09:45",
+   "dias_criacao_ate_visita": 5,
+   "ja_passou": true,
+   "ad_name": "04"
+  },
+  {
+   "deal": "5a5596d5",
+   "funil": "Agendamento",
+   "etapa": "No-Show",
+   "status": "OPEN",
+   "corretor": "Primor Empreendimentos",
+   "criado": "2026-08-31",
+   "visita": "2026-10-07 15:00",
+   "dias_criacao_ate_visita": 36,
+   "ja_passou": true,
+   "ad_name": null
+  },
+  {
+   "deal": "2ef48b71",
+   "funil": "Agendamento",
+   "etapa": "Visita Agendada",
+   "status": "OPEN",
+   "corretor": "Fernanda Araújo",
+   "criado": "2026-09-27",
+   "visita": "2026-10-18 09:00",
+   "dias_criacao_ate_visita": 20,
+   "ja_passou": false,
+   "ad_name": "04"
+  },
+  {
+   "deal": "6b0b885f",
+   "funil": "Reativação",
+   "etapa": "Deixar para o Ano que vem",
+   "status": "OPEN",
+   "corretor": "Primor Empreendimentos",
+   "criado": "2026-08-31",
+   "visita": "2026-11-01 10:00",
+   "dias_criacao_ate_visita": 61,
+   "ja_passou": false,
+   "ad_name": null
+  }
+ ],
+ "agendamento_historico_por_anuncio": {
+  "Família / Segunda Residência": {
+   "total": 40,
+   "preso_em_contato": 25,
+   "qualificado_ou_mais": 9,
+   "perdido": 6,
+   "visita_agendada_ou_mais": 1,
+   "visita_realizada": 1
+  },
+  "03": {
+   "total": 26,
+   "qualificado_ou_mais": 8,
+   "preso_em_contato": 17,
+   "perdido": 1
+  },
+  "SEM ATRIBUICAO": {
+   "total": 14,
+   "qualificado_ou_mais": 9,
+   "perdido": 1,
+   "visita_agendada_ou_mais": 3,
+   "visita_realizada": 2,
+   "preso_em_contato": 5
+  },
+  "04": {
+   "total": 12,
+   "preso_em_contato": 8,
+   "qualificado_ou_mais": 4,
+   "visita_agendada_ou_mais": 1
+  },
+  "Vídeo Patrícia 1 — Cópia": {
+   "total": 3,
+   "qualificado_ou_mais": 2,
+   "preso_em_contato": 1
+  },
+  "Vídeo Patrícia 2 — Cópia": {
+   "total": 2,
+   "qualificado_ou_mais": 2,
+   "visita_agendada_ou_mais": 2,
+   "visita_realizada": 2
+  },
+  "LookALike": {
+   "total": 2,
+   "preso_em_contato": 2
+  },
+  "Vídeo Patrícia 2": {
+   "total": 1,
+   "preso_em_contato": 1
+  },
+  "Investidor": {
+   "total": 1,
+   "preso_em_contato": 1
+  }
+ },
+ "coorte14d_por_anuncio_resultado": {
+  "Vídeo Patrícia 2 — Cópia": {
+   "total": 2,
+   "qualificado_ou_mais": 2
+  },
+  "04": {
+   "total": 5,
+   "perdido": 1,
+   "qualificado_ou_mais": 1
+  },
+  "03": {
+   "total": 12,
+   "perdido": 4
+  }
+ },
+ "qualif_momento_investimento_agendamento": {
+  "nao preenchido": 63,
+  "Próximos dias": 4,
+  "financiamento": 6,
+  "recursos_próprios": 6,
+  "Ainda não sei": 8,
+  "Próximos meses": 9,
+  "preciso_vender_outro_imóvel_antes": 3,
+  "Próximos anos": 2
+ },
+ "qualif_ja_conhece_itacimirim_agendamento": {
+  "já_conheço/frequento": 16,
+  "Já conheço / frequento": 11,
+  "nao preenchido": 34,
+  "Ainda não conheço": 7,
+  "ainda_não_conheço": 23,
+  "conheço_de_nome": 7,
+  "Conheço de nome": 3
+ },
+ "momento_investimento_x_resultado_agendamento": {
+  "nao preenchido": {
+   "total": 63,
+   "qualificado_ou_mais": 21,
+   "perdido": 5,
+   "visita": 6
+  },
+  "Próximos dias": {
+   "total": 4
+  },
+  "financiamento": {
+   "total": 6,
+   "qualificado_ou_mais": 3
+  },
+  "recursos_próprios": {
+   "total": 6,
+   "qualificado_ou_mais": 2
+  },
+  "Ainda não sei": {
+   "total": 8,
+   "perdido": 2,
+   "qualificado_ou_mais": 3
+  },
+  "Próximos meses": {
+   "total": 9,
+   "perdido": 1,
+   "qualificado_ou_mais": 4,
+   "visita": 1
+  },
+  "preciso_vender_outro_imóvel_antes": {
+   "total": 3,
+   "qualificado_ou_mais": 1
+  },
+  "Próximos anos": {
+   "total": 2
+  }
+ },
+ "ja_conhece_x_resultado_agendamento": {
+  "já_conheço/frequento": {
+   "total": 16,
+   "qualificado_ou_mais": 10
+  },
+  "Já conheço / frequento": {
+   "total": 11,
+   "qualificado_ou_mais": 2,
+   "perdido": 1
+  },
+  "nao preenchido": {
+   "total": 34,
+   "qualificado_ou_mais": 14,
+   "perdido": 4
+  },
+  "Ainda não conheço": {
+   "total": 7,
+   "perdido": 2,
+   "qualificado_ou_mais": 1
+  },
+  "ainda_não_conheço": {
+   "total": 23,
+   "qualificado_ou_mais": 6,
+   "perdido": 1
+  },
+  "conheço_de_nome": {
+   "total": 7,
+   "qualificado_ou_mais": 1
+  },
+  "Conheço de nome": {
+   "total": 3
+  }
+ },
+ "deal_forma_de_viabilizacao": {
+  "financiamento": 13,
+  "recursos_próprios": 24,
+  "preciso_vender_outro_imóvel_antes": 3
+ },
+ "deal_autoriza_contato": {
+  "sim!_quero_falar_com_a_construtora": 40
+ },
+ "contact_service_rating": {
+  "sim,_está_dentro": 25,
+  "<test lead: dummy data for o_village_custa_a_partir_de_r$_718_mil,_com_sinal_de_r$_43_mil_pago_na_assinatura._esse_valor_cabe_no_seu_planejamento?>": 1
+ },
+ "tags_contatos": {
+  "base-migrada": 159,
+  "base-migrada;perdido-historico": 47,
+  "_está_dentro": 40,
+  "sim": 40,
+  "automação": 34,
+  "redistribuido": 27,
+  "QUALIFICADO": 21,
+  "Gabriel Goto": 13,
+  "Bruno Lima": 10,
+  "QUENTE": 4,
+  "Contato agendado para Out/2026": 2,
+  "ATENÇÃO": 1,
+  "Prioridade alta": 1,
+  "baixo padrão": 1,
+  "AGENDADO 25/09 15:00": 1,
+  "VISITA AGENDADA": 1,
+  "FRIO": 1
+ },
+ "redistribuidos_tag": {
+  "negocios_com_contato_tag_redistribuido": 32,
+  "corretor_atual": {
+   "Fernanda Araújo": 19,
+   "Primor Empreendimentos": 6,
+   "SEM CORRETOR": 3,
+   "Jose ubaldo gonzaga da silva": 4
+  },
+  "funil_atual": {
+   "Agendamento": 21,
+   "Reativação": 11
+  },
+  "etapa_atual": {
+   "Agendamento / Qualificado": 6,
+   "Reativação / Nunca alcançado": 9,
+   "Reativação / D1": 1,
+   "Agendamento / D4": 8,
+   "Agendamento / Visita Realizada": 2,
+   "Agendamento / D3": 5,
+   "Reativação / D2": 1
+  },
+  "status": {
+   "OPEN": 24,
+   "LOST": 8
+  },
+  "criados_na_janela_14d": 11,
+  "criado_mes": {
+   "2026-09": 15,
+   "2026-08": 6,
+   "2026-10": 11
+  }
+ },
+ "notas_total_com_texto": 191,
+ "notas_temas_contagem": {
+  "preco/valor/caro": 3,
+  "entrada/financiamento/FGTS": 20,
+  "distancia/localizacao": 1,
+  "casa solta/tipologia/tamanho": 5,
+  "prazo de entrega": 0,
+  "vai pensar/sem retorno": 24,
+  "conjuge/familia decide": 10,
+  "visita": 13,
+  "investimento/renda": 7,
+  "concorrente/outro empreendimento": 1
+ }
+}
