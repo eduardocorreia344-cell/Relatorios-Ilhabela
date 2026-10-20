@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ilha Bela · Painel Provecta VGV</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="brand">
+      <svg class="mark" viewBox="290 375 444 529" aria-hidden="true"><path d="M394 385H684L724 432L582 607L538 553L629 440H394Z"/><path d="M306 440H394L684 798L596 799Z"/><path d="M441 673L485 727L394 840H630V894H340L300 848Z"/></svg>
+      <span class="brand-name">Provecta <b>VGV</b></span>
+    </div>
+    <p class="eyebrow">Painel mensal · Marketing + Comercial</p>
+    <h1>Ilha Bela Itacimirim Villages</h1>
+    <p class="period" id="period"></p>
+    <p class="take" id="takeaway"></p>
+  </div>
+</header>
+
+<nav class="tabs wrap" aria-label="Seções">
+  <a href="#resumo">Resumo</a><a href="#midia">Mídia</a><a href="#comercial">Comercial</a><a href="#base">Base antiga</a><a href="#plano">Plano</a>
+</nav>
+
+<main class="wrap">
+  <section id="resumo" class="sec">
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section id="midia" class="sec">
+    <h2>Mídia</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>CPL por semana</h3>
+        <p class="note">Custo por lead de cada semana, com a faixa de referência de R$ 30–60 ao fundo. Abaixo de cada barra, os leads da semana.</p>
+        <div class="chart" id="ch-semanal"></div>
+      </article>
+      <article class="card">
+        <h3>Investimento por dia</h3>
+        <p class="note">Gasto diário da campanha. Em 13/10 a conta inteira parou de veicular.</p>
+        <div class="chart" id="ch-diario"></div>
+      </article>
+    </div>
+    <article class="card">
+      <h3>Por anúncio: lead barato não é lead bom</h3>
+      <p class="note">Investimento e leads da Meta ao lado do que os mesmos leads fizeram no CRM. Qualificação = qualificados ÷ leads do anúncio no CRM. Com 3 leads, o resultado é sinal, não prova.</p>
+      <div class="tw"><table class="tbl" id="tb-anuncios"></table></div>
+      <p class="note" id="pos14"></p>
+    </article>
+  </section>
+
+  <section id="comercial" class="sec">
+    <h2>Comercial</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Funil dos leads novos</h3>
+        <p class="note">Pessoas que entraram no CRM entre 20/09 e 19/10 e a etapa mais avançada a que chegaram em qualquer funil.</p>
+        <div class="bars" id="ch-funil"></div>
+      </article>
+      <article class="card">
+        <h3>Pipeline aberto hoje · Agendamento</h3>
+        <p class="note">Todos os negócios abertos, independente da data de entrada.</p>
+        <div class="legend"><span><i class="sw bad"></i>Parados há mais de 15 dias</span><span><i class="sw mute"></i>Demais abertos</span></div>
+        <div class="bars" id="ch-pipeline"></div>
+        <div class="totals" id="pipeline-totais"></div>
+      </article>
+    </div>
+    <article class="card">
+      <h3>Por corretor</h3>
+      <p class="note">Leads novos pelo corretor atual (a API não mostra o histórico de redistribuição) e a carteira aberta hoje.</p>
+      <div class="tw"><table class="tbl" id="tb-corretores"></table></div>
+    </article>
+    <article class="card">
+      <h3>Motivos de perda no período</h3>
+      <p class="note">Negócios perdidos entre 20/09 e 19/10. A maior parte é limpeza da base de Reativação que nunca atendeu.</p>
+      <div class="bars" id="ch-perdas"></div>
+    </article>
+  </section>
+
+  <section id="base" class="sec">
+    <h2>Base antiga fora da conta</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>O que a regra tirou</h3>
+        <p class="note">Contato com a tag base-migrada e negócio sem atualização desde 05/10.</p>
+        <div class="bars" id="ch-base"></div>
+      </article>
+      <article class="card alert">
+        <h3>Fora da conta, mas não do radar</h3>
+        <p class="note">Entre os excluídos estão os negócios mais avançados que a operação tem, abandonados.</p>
+        <div class="tw"><table class="tbl" id="tb-quentes"></table></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="plano" class="sec">
+    <h2>Plano de ação até 27/10</h2>
+    <div class="acts" id="acoes"></div>
+  </section>
+
+  <section class="sec">
+    <h2>O que estes números não sabem</h2>
+    <ul class="notes">
+      <li><b>Parada de 13/10:</b> o token só lê desempenho e não acessa cobrança. Conferir pagamento e limite de gasto no Gerenciador.</li>
+      <li><b>Aprendizado:</b> a API não informa o status. O conjunto principal gera bem menos que ~50 leads em 7 dias, então fica limitado por estrutura.</li>
+      <li><b>Visitas:</b> as datas só existem em texto livre, quase sempre em branco. Por isso a visita agendada desde 01/10 não foi contada como no-show.</li>
+      <li><b>Meta × CRM:</b> o casamento é por contagem e nome do anúncio, não lead a lead.</li>
+      <li><b>Vendas:</b> os 2 "ganhos" do CRM estão abertos e com valor R$ 0, então não foram contados.</li>
+      <li><b>Fora do escopo:</b> a campanha de seguidores da Primor (<span id="seguidores"></span> no período).</li>
+      <li><b>Retrato fixo:</b> dados de 20/10 puxados das APIs do Meta Ads e do Clint. Esta página não se atualiza sozinha.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <svg class="mark small" viewBox="290 375 444 529" aria-hidden="true"><path d="M394 385H684L724 432L582 607L538 553L629 440H394Z"/><path d="M306 440H394L684 798L596 799Z"/><path d="M441 673L485 727L394 840H630V894H340L300 848Z"/></svg>
+    <p>Gabriel Goto · CRECI 37266-BA · PRIMOR Empreendimentos</p>
+    <p class="sign">Provecta VGV: rigor e honestidade, não otimismo.</p>
+  </div>
+</footer>
+
+<div class="tip" id="tip" hidden></div>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
