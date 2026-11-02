@@ -127,3 +127,21 @@ main { display: flex; flex-direction: column; gap: 34px; padding-block: 24px 48p
 .tip { position: fixed; z-index: 50; pointer-events: none; background: #0E1013; border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, .4); white-space: nowrap; }
 .tip .h { color: var(--muted); margin-bottom: 2px; }
 .tip[hidden] { display: none; }
+
+/* links e status (relatórios semanais) */
+.back, .hero a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+.pill.bad { background: rgba(242, 85, 90, .16); color: var(--bad); }
+.pill.good { background: rgba(61, 214, 140, .16); color: var(--good); }
+.pill.warn { background: rgba(245, 165, 36, .16); color: var(--warn); }
+.tbl td.wrap { white-space: normal; min-width: 180px; }
+.cmp { font-size: 12px; color: var(--muted); }
+.cmp.bad { color: var(--bad); } .cmp.good { color: var(--good); }
+.kpi.warn { border-color: rgba(245, 165, 36, .45); }
+.kpi.warn .n { color: var(--warn); }
+.box { border-radius: var(--r); padding: 14px 16px; font-size: 13.5px; line-height: 1.55; border: 1px solid var(--line); background: var(--panel); }
+.box b { color: var(--text); }
+.box.bad { border-color: rgba(242, 85, 90, .45); background: rgba(242, 85, 90, .07); }
+.box.warn { border-color: rgba(245, 165, 36, .45); background: rgba(245, 165, 36, .07); }
+.archive { display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px; }
+.archive a { color: var(--blue); }

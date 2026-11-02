@@ -1,0 +1,405 @@
+{
+ "regra": {
+  "agora": "2026-11-02T11:00:00-03:00",
+  "corte_updated_at": "2026-10-18T11:00:00-03:00",
+  "negocios_total_api": 302,
+  "negocios_base_migrada": 215,
+  "excluidos": 179,
+  "considerados": 123
+ },
+ "excluidos_detalhe": {
+  "Reativação / Nunca alcançado / OPEN": 67,
+  "Reativação / Nunca alcançado / LOST": 50,
+  "Agendamento / D4 / OPEN": 12,
+  "Reativação / Não tem mais interesse / OPEN": 11,
+  "Reativação / D1 / OPEN": 9,
+  "Reativação / D1 / LOST": 5,
+  "Pós Visita / Proposta / OPEN": 4,
+  "Agendamento / Qualificado / OPEN": 3,
+  "Agendamento / D6 / LOST": 3,
+  "Agendamento / Visita Realizada / OPEN": 3,
+  "Agendamento / D2 / LOST": 2,
+  "Nutrição Semanal / Semana 1 / OPEN": 2,
+  "Agendamento / D4 / LOST": 2,
+  "Reativação / Deixar para o Ano que vem / OPEN": 2,
+  "Reativação / Não tem mais interesse / LOST": 1,
+  "Agendamento / D3 / OPEN": 1,
+  "Agendamento / No-Show / OPEN": 1,
+  "Reativação / Visitou e não fechou / OPEN": 1
+ },
+ "excluidos_por_corretor": {
+  "Sem corretor": 85,
+  "Fernanda": 10,
+  "Ubaldo": 12,
+  "Primor (genérico)": 9
+ },
+ "excluidos_quentes": [
+  {
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "corretor": "Fernanda",
+   "dias_sem_update": 16
+  },
+  {
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 19
+  },
+  {
+   "funil": "Agendamento",
+   "etapa": "Visita Realizada",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 40
+  },
+  {
+   "funil": "Agendamento",
+   "etapa": "Qualificado",
+   "corretor": "Fernanda",
+   "dias_sem_update": 33
+  },
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "corretor": "Primor (genérico)",
+   "dias_sem_update": 19
+  },
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 39
+  },
+  {
+   "funil": "Agendamento",
+   "etapa": "Visita Realizada",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 40
+  },
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 39
+  },
+  {
+   "funil": "Reativação",
+   "etapa": "Visitou e não fechou",
+   "corretor": "Sem corretor",
+   "dias_sem_update": 62
+  },
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 39
+  },
+  {
+   "funil": "Agendamento",
+   "etapa": "Visita Realizada",
+   "corretor": "Ubaldo",
+   "dias_sem_update": 20
+  }
+ ],
+ "snapshot_aberto_total": 96,
+ "snapshot_funil_etapa": {
+  "Agendamento": {
+   "D2": 3,
+   "D4": 37,
+   "Qualificado": 20,
+   "Visita Realizada": 3,
+   "D1": 7,
+   "D5": 4,
+   "D3": 6,
+   "D6": 2
+  },
+  "Reativação": {
+   "D5": 4,
+   "Deixar para o Ano que vem": 1,
+   "D4": 5,
+   "D3": 1,
+   "D1": 1,
+   "Não tem mais interesse": 2
+  }
+ },
+ "snapshot_por_corretor": {
+  "Fernanda": {
+   "abertos": 73,
+   "agendamento": 73,
+   "reativacao": 0,
+   "qualificado+": 21,
+   "parados>7d": 38
+  },
+  "Primor (genérico)": {
+   "abertos": 5,
+   "agendamento": 0,
+   "reativacao": 5,
+   "qualificado+": 0,
+   "parados>7d": 5
+  },
+  "Sem corretor": {
+   "abertos": 9,
+   "agendamento": 0,
+   "reativacao": 9,
+   "qualificado+": 0,
+   "parados>7d": 9
+  },
+  "Ubaldo": {
+   "abertos": 9,
+   "agendamento": 9,
+   "reativacao": 0,
+   "qualificado+": 2,
+   "parados>7d": 5
+  }
+ },
+ "snapshot_dias_na_etapa": {
+  "Agendamento / D1": {
+   "n": 7,
+   "mediana": 4,
+   ">7d": 3,
+   ">15d": 0
+  },
+  "Agendamento / D2": {
+   "n": 3,
+   "mediana": 3,
+   ">7d": 0,
+   ">15d": 0
+  },
+  "Agendamento / D3": {
+   "n": 6,
+   "mediana": 4,
+   ">7d": 0,
+   ">15d": 0
+  },
+  "Agendamento / D4": {
+   "n": 37,
+   "mediana": 11,
+   ">7d": 28,
+   ">15d": 17
+  },
+  "Agendamento / D5": {
+   "n": 4,
+   "mediana": 10,
+   ">7d": 3,
+   ">15d": 0
+  },
+  "Agendamento / D6": {
+   "n": 2,
+   "mediana": 6,
+   ">7d": 0,
+   ">15d": 0
+  },
+  "Agendamento / Qualificado": {
+   "n": 20,
+   "mediana": 2,
+   ">7d": 6,
+   ">15d": 3
+  },
+  "Agendamento / Visita Realizada": {
+   "n": 3,
+   "mediana": 20,
+   ">7d": 3,
+   ">15d": 2
+  },
+  "Reativação / D1": {
+   "n": 1,
+   "mediana": 11,
+   ">7d": 1,
+   ">15d": 0
+  },
+  "Reativação / D3": {
+   "n": 1,
+   "mediana": 13,
+   ">7d": 1,
+   ">15d": 0
+  },
+  "Reativação / D4": {
+   "n": 5,
+   "mediana": 11,
+   ">7d": 5,
+   ">15d": 0
+  },
+  "Reativação / D5": {
+   "n": 4,
+   "mediana": 13,
+   ">7d": 4,
+   ">15d": 0
+  },
+  "Reativação / Deixar para o Ano que vem": {
+   "n": 1,
+   "mediana": 13,
+   ">7d": 1,
+   ">15d": 0
+  },
+  "Reativação / Não tem mais interesse": {
+   "n": 2,
+   "mediana": 13,
+   ">7d": 2,
+   ">15d": 0
+  }
+ },
+ "coorte_total": {
+  "n": 7,
+  "contato+": 7,
+  "qualificado+": 0,
+  "visita_agendada+": 0,
+  "visita_realizada+": 0,
+  "proposta+": 0,
+  "fechamento": 0,
+  "perdidos": 0,
+  "abertos": 7
+ },
+ "coorte_com_form_meta": {
+  "n": 7,
+  "contato+": 7,
+  "qualificado+": 0,
+  "visita_agendada+": 0,
+  "visita_realizada+": 0,
+  "proposta+": 0,
+  "fechamento": 0,
+  "perdidos": 0,
+  "abertos": 7
+ },
+ "coorte_sem_form": {
+  "n": 0,
+  "contato+": 0,
+  "qualificado+": 0,
+  "visita_agendada+": 0,
+  "visita_realizada+": 0,
+  "proposta+": 0,
+  "fechamento": 0,
+  "perdidos": 0,
+  "abertos": 0
+ },
+ "coorte_por_anuncio": {
+  "Vídeo Patrícia 1 — Cópia": {
+   "n": 3,
+   "contato+": 3,
+   "qualificado+": 0,
+   "visita_agendada+": 0,
+   "visita_realizada+": 0,
+   "proposta+": 0,
+   "fechamento": 0,
+   "perdidos": 0,
+   "abertos": 3
+  },
+  "Vídeo Patrícia 2 — Cópia": {
+   "n": 4,
+   "contato+": 4,
+   "qualificado+": 0,
+   "visita_agendada+": 0,
+   "visita_realizada+": 0,
+   "proposta+": 0,
+   "fechamento": 0,
+   "perdidos": 0,
+   "abertos": 4
+  }
+ },
+ "coorte_por_corretor": {
+  "Fernanda": {
+   "n": 7,
+   "contato+": 7,
+   "qualificado+": 0,
+   "visita_agendada+": 0,
+   "visita_realizada+": 0,
+   "proposta+": 0,
+   "fechamento": 0,
+   "perdidos": 0,
+   "abertos": 7
+  }
+ },
+ "coorte_por_semana": {
+  "0": {
+   "n": 7,
+   "contato+": 7,
+   "qualificado+": 0,
+   "visita_agendada+": 0,
+   "visita_realizada+": 0,
+   "proposta+": 0,
+   "fechamento": 0,
+   "perdidos": 0,
+   "abertos": 7
+  }
+ },
+ "coorte_etapa_atual": {
+  "Agendamento / D1": 4,
+  "Agendamento / D3": 2,
+  "Agendamento / D2": 1
+ },
+ "coorte_motivo_perda": {},
+ "coorte_abertos_parados>7d_em_contato": 0,
+ "coorte_migrados": 1,
+ "perdas_janela": {
+  "n": 3,
+  "motivo": {
+   "Tentativas esgotadas": 2,
+   "Não é o momento": 1
+  },
+  "etapa": {
+   "Reativação / Nunca alcançado": 3
+  }
+ },
+ "mudaram_etapa_janela": {
+  "n": 42,
+  "destino": {
+   "Agendamento / Qualificado": 14,
+   "Agendamento / D4": 9,
+   "Agendamento / D3": 6,
+   "Agendamento / D1": 4,
+   "Agendamento / D2": 3,
+   "Reativação / Nunca alcançado": 3,
+   "Agendamento / D6": 2,
+   "Agendamento / D5": 1
+  }
+ },
+ "ganhos": [
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "status": "OPEN",
+   "valor": 0,
+   "won_at": "2026-09-24"
+  },
+  {
+   "funil": "Pós Visita",
+   "etapa": "Proposta",
+   "status": "OPEN",
+   "valor": 0,
+   "won_at": "2026-09-22"
+  }
+ ],
+ "contatos_sem_negocio": 386,
+ "abertos_sem_corretor": 9,
+ "meta": {
+  "janela": "2026-10-26 a 2026-11-01",
+  "anterior": "2026-10-19 a 2026-10-25",
+  "investimento": 382.38,
+  "leads": 7,
+  "cpl": 54.63,
+  "ctr": 1.87,
+  "cpm": 72.23,
+  "prev": {
+   "investimento": 374.91,
+   "leads": 7,
+   "cpl": 53.56,
+   "ctr": 2.73,
+   "cpm": 60.47
+  },
+  "anuncio_01_desde_14_10": {
+   "investimento": 98.7,
+   "leads": 0
+  }
+ },
+ "acompanhamento_plano_20_10": {
+  "qualificados_20_10": 31,
+  "seguem_qualificado": 20,
+  "reiniciados_29_30_10": 12,
+  "voltaram_cadencia": 8,
+  "perdidos": 2,
+  "visita_realizada": 1,
+  "visita_agendada": 0,
+  "pos_visita_sem_movimento": 10,
+  "d4_antes": 35,
+  "d4_agora": 49
+ }
+}

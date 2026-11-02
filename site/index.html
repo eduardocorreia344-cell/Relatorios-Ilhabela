@@ -19,7 +19,7 @@
       <svg class="mark" viewBox="290 375 444 529" aria-hidden="true"><path d="M394 385H684L724 432L582 607L538 553L629 440H394Z"/><path d="M306 440H394L684 798L596 799Z"/><path d="M441 673L485 727L394 840H630V894H340L300 848Z"/></svg>
       <span class="brand-name">Provecta <b>VGV</b></span>
     </div>
-    <p class="eyebrow">Painel mensal · Marketing + Comercial</p>
+    <p class="eyebrow">Painel semanal · Marketing + Comercial</p>
     <h1>Ilha Bela Itacimirim Villages</h1>
     <p class="period" id="period"></p>
     <p class="take" id="takeaway"></p>
@@ -27,7 +27,7 @@
 </header>
 
 <nav class="tabs wrap" aria-label="Seções">
-  <a href="#resumo">Resumo</a><a href="#midia">Mídia</a><a href="#comercial">Comercial</a><a href="#base">Base antiga</a><a href="#plano">Plano</a>
+  <a href="#resumo">Resumo</a><a href="#plano-anterior">Plano de 20/10</a><a href="#midia">Mídia</a><a href="#comercial">Comercial</a><a href="#base">Base antiga</a><a href="#plano">Plano</a><a href="#arquivo">Anteriores</a>
 </nav>
 
 <main class="wrap">
@@ -35,25 +35,34 @@
     <div class="kpis" id="kpis"></div>
   </section>
 
+  <section id="plano-anterior" class="sec">
+    <h2>O que aconteceu com o plano de 20/10</h2>
+    <article class="card">
+      <h3 id="plano-placar"></h3>
+      <div class="tw"><table class="tbl" id="tb-plano"></table></div>
+    </article>
+    <div class="box bad"><b>O relógio foi zerado, não o problema.</b> Em 29 e 30/10, 12 qualificados saíram e voltaram para a mesma etapa (10 deles em 30/10, entre 20h15 e 20h50), e nenhum ganhou nota nova. Por isso a mediana de dias parado em Qualificado caiu de 21 para 2. Nenhum virou visita.</div>
+    <p class="note">Esta comparação usa todos os negócios, sem a regra da base antiga, para seguir os mesmos negócios de 20/10 até hoje.</p>
+  </section>
+
   <section id="midia" class="sec">
     <h2>Mídia</h2>
     <div class="grid">
       <article class="card">
-        <h3>CPL por semana</h3>
-        <p class="note">Custo por lead de cada semana, com a faixa de referência de R$ 30–60 ao fundo. Abaixo de cada barra, os leads da semana.</p>
-        <div class="chart" id="ch-semanal"></div>
+        <h3>CPL desde a nova configuração (14/10)</h3>
+        <p class="note">Desde 14/10, só os vídeos da Patrícia e o "01" estão no ar. Barra = custo por lead.</p>
+        <div class="bars" id="ch-fases"></div>
       </article>
       <article class="card">
-        <h3>Investimento por dia</h3>
-        <p class="note">Gasto diário da campanha. Em 13/10 a conta inteira parou de veicular.</p>
+        <h3>Investimento e leads por dia</h3>
+        <p class="note">Em azul, a semana atual; em cinza, a anterior. O número acima de cada barra é a quantidade de leads do dia.</p>
         <div class="chart" id="ch-diario"></div>
       </article>
     </div>
     <article class="card">
-      <h3>Por anúncio: lead barato não é lead bom</h3>
-      <p class="note">Investimento e leads da Meta ao lado do que os mesmos leads fizeram no CRM. Qualificação = qualificados ÷ leads do anúncio no CRM. Com 3 leads, o resultado é sinal, não prova.</p>
+      <h3>Por anúncio: semana atual × anterior</h3>
       <div class="tw"><table class="tbl" id="tb-anuncios"></table></div>
-      <p class="note" id="pos14"></p>
+      <p class="note">O "01" passou de R$ 15,69 para R$ 55,25 sem nenhum lead (R$ 98,70 desde 14/10). <b>Fadiga clássica não há:</b> a frequência acumulada do Patrícia 1 desde 14/10 é 1,88. O que caiu foi o CTR, com o CPM subindo: é hora de preparar um criativo substituto.</p>
     </article>
   </section>
 
@@ -61,27 +70,28 @@
     <h2>Comercial</h2>
     <div class="grid">
       <article class="card">
-        <h3>Funil dos leads novos</h3>
-        <p class="note">Pessoas que entraram no CRM entre 20/09 e 19/10 e a etapa mais avançada a que chegaram em qualquer funil.</p>
+        <h3>Leads da semana até onde chegaram</h3>
+        <p class="note" id="funil-nota"></p>
         <div class="bars" id="ch-funil"></div>
       </article>
       <article class="card">
-        <h3>Pipeline aberto hoje · Agendamento</h3>
-        <p class="note">Todos os negócios abertos, independente da data de entrada.</p>
-        <div class="legend"><span><i class="sw bad"></i>Parados há mais de 15 dias</span><span><i class="sw mute"></i>Demais abertos</span></div>
-        <div class="bars" id="ch-pipeline"></div>
-        <div class="totals" id="pipeline-totais"></div>
+        <h3>Os 31 qualificados de 20/10, hoje</h3>
+        <p class="note">Todos os negócios, sem a regra da base antiga.</p>
+        <div class="bars" id="ch-qualif"></div>
       </article>
     </div>
     <article class="card">
-      <h3>Por corretor</h3>
-      <p class="note">Leads novos pelo corretor atual (a API não mostra o histórico de redistribuição) e a carteira aberta hoje.</p>
-      <div class="tw"><table class="tbl" id="tb-corretores"></table></div>
+      <h3>Pipeline aberto em 02/11 · Agendamento</h3>
+      <p class="note">Após a regra da base antiga.</p>
+      <div class="legend"><span><i class="sw bad"></i>Parados há mais de 15 dias</span><span><i class="sw mute"></i>Demais abertos</span></div>
+      <div class="bars" id="ch-pipeline"></div>
+      <div class="totals" id="pipeline-extra"></div>
     </article>
     <article class="card">
-      <h3>Motivos de perda no período</h3>
-      <p class="note">Negócios perdidos entre 20/09 e 19/10. A maior parte é limpeza da base de Reativação que nunca atendeu.</p>
-      <div class="bars" id="ch-perdas"></div>
+      <h3>Por corretor</h3>
+      <p class="note">"Abertos" usa a regra da base antiga. As demais colunas contam todos os negócios.</p>
+      <div class="tw"><table class="tbl" id="tb-corretores"></table></div>
+      <p class="note">A Fernanda recebe 100% do volume e movimenta, mas não converte qualificado em visita. O Ubaldo, que fez as visitas do histórico, não recebe lead novo desde 20/10 e tem 8 negócios pós-visita sem retorno.</p>
     </article>
   </section>
 
@@ -90,33 +100,37 @@
     <div class="grid">
       <article class="card">
         <h3>O que a regra tirou</h3>
-        <p class="note">Contato com a tag base-migrada e negócio sem atualização desde 05/10.</p>
+        <p class="note" id="base-nota"></p>
         <div class="bars" id="ch-base"></div>
       </article>
       <article class="card alert">
-        <h3>Fora da conta, mas não do radar</h3>
-        <p class="note">Entre os excluídos estão os negócios mais avançados que a operação tem, abandonados.</p>
+        <h3>A regra está escondendo as propostas</h3>
+        <p class="note">Com o corte andando para frente, as 4 propostas do CRM saíram da conta. O painel parece mais limpo do que a operação está.</p>
         <div class="tw"><table class="tbl" id="tb-quentes"></table></div>
       </article>
     </div>
   </section>
 
   <section id="plano" class="sec">
-    <h2>Plano de ação até 27/10</h2>
+    <h2>Plano de ação até 09/11</h2>
     <div class="acts" id="acoes"></div>
+    <div class="box warn"><b>O volume também limita.</b> No ritmo atual, 7 leads por semana dão ~30 por mês. Pela referência de 100–150 leads por venda, isso é uma venda a cada 3 a 5 meses, com o comercial funcionando. Escalar a mídia vem depois que qualificado voltar a virar visita.</div>
   </section>
 
   <section class="sec">
     <h2>O que estes números não sabem</h2>
     <ul class="notes">
-      <li><b>Parada de 13/10:</b> o token só lê desempenho e não acessa cobrança. Conferir pagamento e limite de gasto no Gerenciador.</li>
-      <li><b>Aprendizado:</b> a API não informa o status. O conjunto principal gera bem menos que ~50 leads em 7 dias, então fica limitado por estrutura.</li>
-      <li><b>Visitas:</b> as datas só existem em texto livre, quase sempre em branco. Por isso a visita agendada desde 01/10 não foi contada como no-show.</li>
-      <li><b>Meta × CRM:</b> o casamento é por contagem e nome do anúncio, não lead a lead.</li>
-      <li><b>Vendas:</b> os 2 "ganhos" do CRM estão abertos e com valor R$ 0, então não foram contados.</li>
-      <li><b>Fora do escopo:</b> a campanha de seguidores da Primor (<span id="seguidores"></span> no período).</li>
-      <li><b>Retrato fixo:</b> dados de 20/10 puxados das APIs do Meta Ads e do Clint. Esta página não se atualiza sozinha.</li>
+      <li><b>Etapa reiniciada:</b> a API mostra só a data da última mudança de etapa, não o caminho. Pode ter sido uma automação ou uma mudança manual.</li>
+      <li><b>Visitas:</b> as datas só existem em texto livre. Visita combinada por fora do CRM não aparece aqui.</li>
+      <li><b>Edição do "Vídeo Patrícia 2" em 21/10:</b> a API registra a data, não o que mudou.</li>
+      <li><b>Fora do escopo:</b> a campanha de seguidores da Primor (<span id="seguidores"></span> na semana).</li>
+      <li><b>Retrato fixo:</b> dados de 02/11 puxados das APIs do Meta Ads e do Clint. Esta página não se atualiza sozinha.</li>
     </ul>
+  </section>
+
+  <section id="arquivo" class="sec">
+    <h2>Relatórios anteriores</h2>
+    <div class="archive"><a href="2026-10-20/">Mensal · 20/09 a 19/10/2026</a></div>
   </section>
 </main>
 

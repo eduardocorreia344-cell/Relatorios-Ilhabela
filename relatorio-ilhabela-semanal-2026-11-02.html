@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilha Bela — Relatório Semanal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#08201E; --panel:#0E4D49; --panel2:#0c3f3c;
+    --gold:#C4A46A; --gold2:#D9BC85;
+    --good:#3FC79A; --warn:#E39A5B; --crit:#E2726B;
+    --text:#FBF9F3; --muted:#B9D2CC; --line:rgba(196,164,106,0.35);
+    --display:'Playfair Display', Georgia, serif; --body:'Inter', -apple-system, sans-serif;
+  }
+  @page{size:480px 1000px;margin:0;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:var(--deep);color:var(--text);font-family:var(--body);font-size:13.5px;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .pg{width:480px;height:1000px;overflow:hidden;position:relative;padding:34px 26px 40px;background:var(--deep);break-after:page;margin:0 auto;}
+  .pg:last-child{break-after:auto;}
+  @media screen{.pg{margin:0 auto 16px;border:1px solid rgba(196,164,106,.2);}}
+  .pgno{position:absolute;bottom:14px;left:26px;right:26px;display:flex;justify-content:space-between;font-size:9.5px;color:rgba(185,210,204,.6);letter-spacing:.06em;text-transform:uppercase;}
+
+  .tag{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800;margin:0 0 6px;}
+  h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:27px;line-height:1.15;margin:0 0 16px;}
+  h3{font-size:13px;font-weight:800;margin:18px 0 10px;color:var(--gold2);text-transform:uppercase;letter-spacing:.06em;}
+  p{margin:0 0 10px;}
+  .muted{color:var(--muted);}
+  .small{font-size:11.5px;}
+  b,strong{color:#fff;}
+
+  /* capa */
+  .cover{display:flex;flex-direction:column;justify-content:center;text-align:center;background:radial-gradient(ellipse at top, rgba(196,164,106,0.20), transparent 62%),var(--deep);}
+  .cover .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:22px;}
+  .cover h1{font-family:var(--display);font-style:italic;font-weight:700;font-size:62px;line-height:1;margin:0 0 6px;}
+  .cover .sub{font-family:var(--display);font-style:italic;font-size:21px;color:var(--gold);margin:0 0 30px;}
+  .badge{display:inline-block;background:rgba(196,164,106,0.14);border:1px solid var(--line);border-radius:30px;padding:8px 18px;font-size:13px;font-weight:700;margin:0 auto 12px;}
+  .cover .meta{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:14px;text-align:left;}
+  .cover .meta .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+  .cover .meta .v{font-size:13.5px;font-weight:700;}
+
+  /* blocos */
+  .verdict{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px;}
+  .verdict ol{margin:0;padding-left:18px;}
+  .verdict li{margin-bottom:9px;line-height:1.5;}
+  .verdict li:last-child{margin-bottom:0;}
+  .box{border-radius:11px;padding:12px 14px;margin:12px 0;font-size:12.5px;line-height:1.5;}
+  .box h4{margin:0 0 4px;font-size:12.5px;}
+  .box.crit{background:rgba(226,114,107,0.14);border:1px solid rgba(226,114,107,0.5);}
+  .box.crit h4{color:#F7C6C1;}
+  .box.warn{background:rgba(227,154,91,0.13);border:1px solid rgba(227,154,91,0.5);}
+  .box.warn h4{color:#F6D4B3;}
+  .box.ok{background:rgba(63,199,154,0.11);border:1px solid rgba(63,199,154,0.45);}
+  .box.ok h4{color:#C9F1E2;}
+  .box.info{background:rgba(196,164,106,0.10);border:1px solid var(--line);}
+  .box.info h4{color:var(--gold2);}
+  .box p{margin:0;color:#E4EEEB;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px;}
+  .grid.three{grid-template-columns:1fr 1fr 1fr;}
+  .tile{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:11px;padding:11px 12px 10px;}
+  .tile.good{border-left-color:var(--good);} .tile.crit{border-left-color:var(--crit);} .tile.warn{border-left-color:var(--warn);}
+  .tile .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;margin-bottom:4px;}
+  .tile .v{font-size:23px;font-weight:900;line-height:1.05;}
+  .grid.three .tile .v{font-size:19px;}
+  .tile .n{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.35;}
+
+  /* barras: rótulo em cima, barra embaixo, valor fora da barra */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 14px 12px;margin-bottom:12px;}
+  .card .t{font-size:12.5px;font-weight:800;margin-bottom:1px;}
+  .card .s{font-size:10.5px;color:var(--muted);margin-bottom:12px;}
+  .row{margin-bottom:9px;}
+  .row:last-child{margin-bottom:0;}
+  .row .lb{font-size:11.5px;font-weight:700;margin-bottom:3px;display:flex;justify-content:space-between;gap:8px;}
+  .row .lb span{font-weight:500;color:var(--muted);font-size:10.5px;}
+  .track{display:flex;align-items:center;height:22px;background:rgba(0,0,0,0.20);border-radius:6px;}
+  .fill{height:100%;border-radius:6px;flex:0 0 auto;min-width:5px;}
+  .val{margin-left:8px;font-size:12px;font-weight:800;white-space:nowrap;}
+  .row.hot .lb{color:#F7C6C1;}
+  .flag{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:800;background:var(--crit);color:var(--deep);letter-spacing:.04em;vertical-align:1px;}
+  .row .lb span.flag{color:var(--deep);font-size:9px;font-weight:800;}
+  .flag.g{background:var(--good);} .flag.o{background:var(--warn);} .flag.y{background:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;font-size:11.2px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:12px;}
+  th{text-align:left;padding:7px 7px;background:rgba(196,164,106,0.16);color:var(--gold2);font-size:9px;text-transform:uppercase;letter-spacing:.05em;font-weight:800;}
+  td{padding:7px 7px;border-top:1px solid rgba(196,164,106,0.12);vertical-align:top;}
+  td.r,th.r{text-align:right;white-space:nowrap;}
+  tr.bad td{background:rgba(226,114,107,0.10);}
+  tr.goodrow td{background:rgba(63,199,154,0.09);}
+  td .x{display:block;font-size:9.8px;color:var(--muted);font-weight:500;}
+  .cross td{font-size:10.8px;line-height:1.4;}
+  .cross td.q{font-style:italic;color:#E4EEEB;}
+
+  .funnel .row .lb b{font-size:11.5px;}
+  .conv{font-size:10px;color:var(--muted);margin:-3px 0 7px 2px;}
+  .conv.bad{color:#F7A8A1;font-weight:800;}
+
+  .act{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px 11px 48px;margin-bottom:10px;position:relative;}
+  .act .num{position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--deep);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;}
+  .act.urgent{border-color:rgba(226,114,107,0.55);background:rgba(226,114,107,0.08);} .act.urgent .num{background:var(--crit);}
+  .act.hold{border-color:rgba(227,154,91,0.55);background:rgba(227,154,91,0.08);} .act.hold .num{background:var(--warn);}
+  .act h4{margin:0 0 5px;font-size:13px;line-height:1.3;}
+  .act p{margin:0 0 6px;font-size:11.3px;color:#DCE8E5;line-height:1.45;}
+  .act .m{font-size:10.5px;color:var(--muted);display:grid;grid-template-columns:auto 1fr;gap:1px 6px;}
+  .act .m span{color:var(--gold);font-weight:800;}
+
+  .foot ul{margin:0 0 10px;padding-left:16px;font-size:11px;color:#DCE8E5;}
+  .foot li{margin-bottom:5px;line-height:1.45;}
+  .sign{position:absolute;bottom:42px;left:26px;right:26px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--display);font-style:italic;font-size:15.5px;color:var(--gold);text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<div class="pg cover">
+  <div class="eyebrow">Provecta VGV · Relatório de Performance</div>
+  <h1>Ilha Bela</h1>
+  <div class="sub">Itacimirim Villages</div>
+  <div><span class="badge">Relatório semanal · Marketing + Comercial</span></div>
+  <div><span class="badge">Mídia: 26/10 a 01/11/2026 · CRM: retrato de 02/11</span></div>
+  <div class="meta">
+    <div><div class="l">Analista</div><div class="v">Gabriel Goto — CRECI 37266-BA</div></div>
+    <div><div class="l">Empreendedor</div><div class="v">PRIMOR Empreendimentos</div></div>
+    <div><div class="l">Comparação</div><div class="v">Semana anterior (19/10 a 25/10) e plano de ação de 20/10</div></div>
+    <div><div class="l">Regra deste relatório</div><div class="v">Base antiga (tag base-migrada) sem atualização há mais de 15 dias fora da conta: 179 negócios excluídos.</div></div>
+  </div>
+</div>
+
+<!-- 2 · RESUMO -->
+<div class="pg">
+  <p class="tag">01 · Resumo executivo</p>
+  <h2>Semana sem visita: o plano de 20/10 não saiu do papel</h2>
+  <div class="grid">
+    <div class="tile"><div class="l">Investimento</div><div class="v">R$ 382,38</div><div class="n">+2% vs semana anterior</div></div>
+    <div class="tile warn"><div class="l">Leads · CPL</div><div class="v">7 · R$ 54,63</div><div class="n">No topo da faixa R$ 30–60</div></div>
+    <div class="tile crit"><div class="l">Visitas agendadas</div><div class="v">0</div><div class="n">Na semana, com 20 qualificados abertos</div></div>
+    <div class="tile crit"><div class="l">Pós-visita parados</div><div class="v">11</div><div class="n">Nenhuma proposta nova desde 20/10</div></div>
+  </div>
+  <div class="verdict">
+    <ol>
+      <li><b>Mídia na faixa, mas piorando:</b> 7 leads a R$ 54,63, o dobro do CPL dos primeiros dias da nova configuração (R$ 26,42 em 14–18/10). O CTR caiu de 2,73% para 1,87%.</li>
+      <li><b>Nenhuma visita agendada na semana.</b> Dos 31 qualificados de 20/10, só 1 chegou à visita (realizada em 23/10, antes desta semana). 12 tiveram a etapa "reiniciada" em 29–30/10, sem nota nova.</li>
+      <li><b>Quem já visitou continua parado:</b> 11 negócios entre visita realizada, proposta e "visitou e não fechou", sem proposta nova nem perda registrada.</li>
+      <li><b>Distribuição:</b> os 12 negócios novos desde 20/10 foram todos para a Fernanda. O Ubaldo não recebeu nenhum.</li>
+      <li><b>Decisão:</b> pausar o anúncio "01" e não escalar a mídia. No comercial, trocar prazo por rotina diária de gestão e passar a distribuir em rodízio.</li>
+    </ol>
+  </div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>2</span></div>
+</div>
+
+<!-- 3 · PLANO ANTERIOR -->
+<div class="pg">
+  <p class="tag">02 · O que aconteceu com o plano de 20/10</p>
+  <h2>1 de 5 ações cumprida</h2>
+  <table>
+    <thead><tr><th style="width:30%">Ação de 20/10</th><th>O que aconteceu até 02/11</th><th class="r">Status</th></tr></thead>
+    <tbody>
+      <tr class="bad"><td>1 · Agendar visita com os qualificados em 72h</td><td>31 qualificados → 0 visitas agendadas. 1 visita realizada (23/10), 8 voltaram para a cadência, 2 perdidos, 20 seguem em Qualificado.</td><td class="r"><span class="flag">NÃO</span></td></tr>
+      <tr class="bad"><td>2 · Follow-up de quem já visitou</td><td>Os 10 negócios pós-visita não tiveram nenhuma movimentação em 13 dias.</td><td class="r"><span class="flag">NÃO</span></td></tr>
+      <tr class="bad"><td>3 · Destravar a fila em D4</td><td>29 dos 35 continuam em D4, e a fila cresceu para 49.</td><td class="r"><span class="flag">PIOROU</span></td></tr>
+      <tr class="goodrow"><td>4 · Não mexer na mídia</td><td>Sem pausa nem mudança de orçamento. O "Vídeo Patrícia 2" teve uma edição registrada em 21/10.</td><td class="r"><span class="flag g">SIM</span></td></tr>
+      <tr><td>5 · Corrigir registros do CRM</td><td>A visita agendada sem data voltou para Qualificado (22/10). Os 2 "ganhos" com valor R$ 0 continuam lá.</td><td class="r"><span class="flag o">PARCIAL</span></td></tr>
+    </tbody>
+  </table>
+  <div class="box crit"><h4>O relógio foi zerado, não o problema</h4><p>Em 29 e 30/10, 12 qualificados saíram e voltaram para a mesma etapa (10 deles em 30/10, entre 20h15 e 20h50), e nenhum ganhou nota nova. Por isso a mediana de dias parado em Qualificado caiu de 21 para 2. Isso não é avanço: nenhum virou visita.</p></div>
+  <div class="box info"><h4>Como esta página foi medida</h4><p>Para seguir os mesmos negócios de 20/10 até hoje, esta comparação usa todos os negócios, sem a regra da base antiga, porque o corte de 15 dias mudou de data entre os dois relatórios.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>3</span></div>
+</div>
+
+<!-- 4 · MÍDIA 1 -->
+<div class="pg">
+  <p class="tag">03 · Painel de mídia</p>
+  <h2>CPL dobrou desde a nova configuração</h2>
+  <div class="grid three">
+    <div class="tile"><div class="l">Investimento</div><div class="v">R$ 382</div><div class="n">R$ 374,91 antes · +2%</div></div>
+    <div class="tile"><div class="l">Leads</div><div class="v">7</div><div class="n">7 antes · igual</div></div>
+    <div class="tile warn"><div class="l">CPL</div><div class="v">R$ 54,63</div><div class="n">R$ 53,56 antes</div></div>
+    <div class="tile crit"><div class="l">CTR</div><div class="v">1,87%</div><div class="n">2,73% antes · −32%</div></div>
+    <div class="tile warn"><div class="l">CPM</div><div class="v">R$ 72,23</div><div class="n">R$ 60,47 antes · +19%</div></div>
+    <div class="tile"><div class="l">Frequência</div><div class="v">1,79</div><div class="n">1,74 antes · 2.950 pessoas</div></div>
+  </div>
+  <div class="card">
+    <div class="t">CPL desde 14/10, quando só os vídeos da Patrícia e o "01" ficaram no ar</div>
+    <div class="s">Barra = custo por lead · ao lado, leads e investimento</div>
+    <div class="row"><div class="lb">14/10 – 18/10 (5 dias) <span>10 leads · R$ 264,17</span></div><div class="track"><div class="fill" style="width:41%;background:var(--good);"></div><span class="val">R$ 26,42</span></div></div>
+    <div class="row"><div class="lb">19/10 – 25/10 <span>7 leads · R$ 374,91</span></div><div class="track"><div class="fill" style="width:83%;background:var(--warn);"></div><span class="val">R$ 53,56</span></div></div>
+    <div class="row hot"><div class="lb">26/10 – 01/11 <span>7 leads · R$ 382,38</span></div><div class="track"><div class="fill" style="width:85%;background:var(--warn);"></div><span class="val">R$ 54,63</span></div></div>
+  </div>
+  <div class="box warn"><h4>Fadiga? Não pelo critério clássico</h4><p>A frequência acumulada do Patrícia 1 desde 14/10 é 1,88, longe de 3,5–4. O que mudou foi o CTR (2,33% → 1,48% no Patrícia 1) com o CPM subindo. Isso indica desgaste do criativo e leilão mais caro: é hora de preparar um substituto, não de pausar.</p></div>
+  <div class="box info"><h4>Aprendizado</h4><p>7 leads por semana contra a referência de ~50. O conjunto continua limitado pelo orçamento. A API não informa o status.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>4</span></div>
+</div>
+
+<!-- 5 · MÍDIA 2 -->
+<div class="pg">
+  <p class="tag">03 · Painel de mídia</p>
+  <h2>Por anúncio e por dia</h2>
+  <table>
+    <thead><tr><th>Anúncio</th><th class="r">Invest.</th><th class="r">Leads</th><th class="r">CPL</th><th class="r">CTR</th></tr></thead>
+    <tbody>
+      <tr><td>Vídeo Patrícia 1<span class="x">antes: R$ 249,28 · 5 leads · CTR 2,33%</span></td><td class="r">R$ 214,24</td><td class="r">3</td><td class="r">R$ 71,41</td><td class="r">1,48%</td></tr>
+      <tr class="goodrow"><td>Vídeo Patrícia 2<span class="x">antes: R$ 109,94 · 2 leads · CTR 3,89%</span></td><td class="r">R$ 112,89</td><td class="r">4</td><td class="r">R$ 28,22</td><td class="r">3,25%</td></tr>
+      <tr class="bad"><td>"01"<span class="x">antes: R$ 15,69 · 0 leads</span></td><td class="r">R$ 55,25</td><td class="r">0</td><td class="r">—</td><td class="r">1,46%</td></tr>
+    </tbody>
+  </table>
+  <div class="box crit"><h4>"01": 14% do investimento sem nenhum lead</h4><p>Desde 14/10 foram R$ 98,70 e nenhum lead. Nesta semana o gasto dele triplicou (R$ 15,69 → R$ 55,25), tirando verba dos dois vídeos que geram lead.</p></div>
+  <div class="card">
+    <div class="t">Investimento e leads por dia</div>
+    <div class="s">Barra = investimento · ao lado, leads do dia</div>
+    <div class="row"><div class="lb">Seg 26/10 <span>1 lead</span></div><div class="track"><div class="fill" style="width:62%;background:var(--gold);"></div><span class="val">R$ 50,60</span></div></div>
+    <div class="row"><div class="lb">Ter 27/10 <span>0 leads</span></div><div class="track"><div class="fill" style="width:72%;background:var(--gold);"></div><span class="val">R$ 58,81</span></div></div>
+    <div class="row"><div class="lb">Qua 28/10 <span>3 leads</span></div><div class="track"><div class="fill" style="width:51%;background:var(--good);"></div><span class="val">R$ 41,17</span></div></div>
+    <div class="row"><div class="lb">Qui 29/10 <span>0 leads</span></div><div class="track"><div class="fill" style="width:76%;background:var(--gold);"></div><span class="val">R$ 62,07</span></div></div>
+    <div class="row"><div class="lb">Sex 30/10 <span>1 lead</span></div><div class="track"><div class="fill" style="width:66%;background:var(--gold);"></div><span class="val">R$ 54,11</span></div></div>
+    <div class="row"><div class="lb">Sáb 31/10 <span>0 leads</span></div><div class="track"><div class="fill" style="width:57%;background:var(--gold);"></div><span class="val">R$ 46,49</span></div></div>
+    <div class="row"><div class="lb">Dom 01/11 <span>2 leads</span></div><div class="track"><div class="fill" style="width:85%;background:var(--good);"></div><span class="val">R$ 69,13</span></div></div>
+  </div>
+  <div class="box ok"><h4>Entrega normal</h4><p>Sem dia parado na semana: a campanha gastou entre R$ 41 e R$ 69 por dia, com orçamento de R$ 55.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>5</span></div>
+</div>
+
+<!-- 6 · COMERCIAL 1 -->
+<div class="pg">
+  <p class="tag">04 · Painel comercial</p>
+  <h2>Leads da semana e pipeline aberto</h2>
+  <div class="card funnel">
+    <div class="t">7 leads novos (26/10 a 01/11) até onde chegaram</div>
+    <div class="s">Todos do formulário Meta: 3 do Patrícia 1 e 4 do Patrícia 2. Todos com a Fernanda.</div>
+    <div class="row"><div class="lb"><b>Entraram no CRM</b></div><div class="track"><div class="fill" style="width:88%;background:var(--gold);"></div><span class="val">7</span></div></div>
+    <div class="row"><div class="lb"><b>Em contato (D1–D3)</b></div><div class="track"><div class="fill" style="width:88%;background:var(--gold);"></div><span class="val">7</span></div></div>
+    <div class="row"><div class="lb"><b>Qualificado</b> <span>leads com até 7 dias: cedo para cobrar</span></div><div class="track"><div class="fill" style="width:0.5%;background:var(--warn);"></div><span class="val">0</span></div></div>
+  </div>
+  <div class="card">
+    <div class="t">Pipeline aberto em 02/11 · Agendamento (82 negócios)</div>
+    <div class="s">Após a regra da base antiga · ao lado, parados há mais de 15 dias e mediana na etapa</div>
+    <div class="row"><div class="lb">D1 – D3 <span>0 &gt;15d</span></div><div class="track"><div class="fill" style="width:37%;background:var(--gold);"></div><span class="val">16</span></div></div>
+    <div class="row hot"><div class="lb">D4 <span>17 &gt;15d · mediana 11 dias</span></div><div class="track"><div class="fill" style="width:85%;background:var(--crit);"></div><span class="val">37</span></div></div>
+    <div class="row"><div class="lb">D5 – D6 <span>0 &gt;15d</span></div><div class="track"><div class="fill" style="width:14%;background:var(--gold);"></div><span class="val">6</span></div></div>
+    <div class="row hot"><div class="lb">Qualificado <span class="flag">GARGALO</span> <span>mediana 2 dias (relógio reiniciado)</span></div><div class="track"><div class="fill" style="width:46%;background:var(--crit);"></div><span class="val">20</span></div></div>
+    <div class="row"><div class="lb">Visita Agendada</div><div class="track"><div class="fill" style="width:0.5%;background:var(--crit);"></div><span class="val">0</span></div></div>
+    <div class="row"><div class="lb">Visita Realizada <span>2 &gt;15d · mediana 20 dias</span></div><div class="track"><div class="fill" style="width:7%;background:var(--warn);"></div><span class="val">3</span></div></div>
+  </div>
+  <div class="box warn"><h4>Fora do Agendamento</h4><p>14 abertos em Reativação (9 sem corretor). Sem negócio em Pós Visita depois da regra: as 4 propostas estão todas entre os excluídos (página 8).</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>6</span></div>
+</div>
+
+<!-- 7 · COMERCIAL 2 -->
+<div class="pg">
+  <p class="tag">04 · Painel comercial</p>
+  <h2>Para onde foram os qualificados</h2>
+  <div class="card">
+    <div class="t">Os 31 qualificados de 20/10, hoje</div>
+    <div class="s">Todos os negócios, sem a regra da base antiga</div>
+    <div class="row"><div class="lb">Seguem em Qualificado <span>12 com etapa reiniciada em 29–30/10</span></div><div class="track"><div class="fill" style="width:85%;background:var(--warn);"></div><span class="val">20</span></div></div>
+    <div class="row"><div class="lb">Voltaram para a cadência (D2–D5)</div><div class="track"><div class="fill" style="width:34%;background:var(--gold);"></div><span class="val">8</span></div></div>
+    <div class="row"><div class="lb">Perdidos</div><div class="track"><div class="fill" style="width:9%;background:var(--gold);"></div><span class="val">2</span></div></div>
+    <div class="row"><div class="lb">Visita realizada <span>23/10, com a Fernanda</span></div><div class="track"><div class="fill" style="width:4%;background:var(--good);"></div><span class="val">1</span></div></div>
+    <div class="row hot"><div class="lb">Visita agendada</div><div class="track"><div class="fill" style="width:0.5%;background:var(--crit);"></div><span class="val">0</span></div></div>
+  </div>
+  <table>
+    <thead><tr><th>Corretor</th><th class="r">Leads novos desde 20/10</th><th class="r">Mov. na semana</th><th class="r">Abertos</th><th class="r">Pós-visita parados</th></tr></thead>
+    <tbody>
+      <tr class="bad"><td>Fernanda<span class="x">20 qualificados · 41 em D4</span></td><td class="r">12</td><td class="r">37</td><td class="r">73</td><td class="r">1</td></tr>
+      <tr class="bad"><td>Ubaldo<span class="x">8 em D4</span></td><td class="r">0</td><td class="r">5</td><td class="r">9</td><td class="r">8</td></tr>
+    </tbody>
+  </table>
+  <div class="box crit"><h4>Dois gargalos, um em cada corretor</h4><p>A Fernanda recebe 100% do volume e movimenta, mas não converte qualificado em visita. O Ubaldo, que fez as visitas do histórico, não recebe lead novo desde 20/10 e tem 8 pós-visita sem retorno. "Abertos" usa a regra da base antiga; as demais colunas contam todos os negócios.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>7</span></div>
+</div>
+
+<!-- 8 · BASE ANTIGA -->
+<div class="pg">
+  <p class="tag">05 · Como os números foram contados</p>
+  <h2>Base antiga fora da conta</h2>
+  <p class="muted small">Regra: contato com a tag <b>base-migrada</b> e negócio sem atualização desde 18/10, 11h (15 dias antes da extração).</p>
+  <div class="card">
+    <div class="t">De 302 negócios para 123 considerados</div>
+    <div class="s">Todos os funis, abertos e perdidos</div>
+    <div class="row"><div class="lb">Negócios no Clint</div><div class="track"><div class="fill" style="width:88%;background:var(--gold);"></div><span class="val">302</span></div></div>
+    <div class="row"><div class="lb">Da base antiga</div><div class="track"><div class="fill" style="width:63%;background:#8C7A55;"></div><span class="val">215</span></div></div>
+    <div class="row hot"><div class="lb">Excluídos</div><div class="track"><div class="fill" style="width:52%;background:var(--crit);"></div><span class="val">179</span></div></div>
+    <div class="row"><div class="lb">Considerados</div><div class="track"><div class="fill" style="width:36%;background:var(--good);"></div><span class="val">123</span></div></div>
+  </div>
+  <table>
+    <thead><tr><th>Excluídos em etapa avançada</th><th>Corretor</th><th class="r">Neg.</th><th class="r">Sem atualização</th></tr></thead>
+    <tbody>
+      <tr class="bad"><td>Proposta (Pós Visita)</td><td>Ubaldo</td><td class="r">3</td><td class="r">39 dias</td></tr>
+      <tr class="bad"><td>Proposta (Pós Visita)</td><td>Primor (genérico)</td><td class="r">1</td><td class="r">19 dias</td></tr>
+      <tr class="bad"><td>Visita Realizada</td><td>Ubaldo</td><td class="r">3</td><td class="r">20 a 40 dias</td></tr>
+      <tr><td>Qualificado</td><td>Fernanda 2 · Ubaldo 1</td><td class="r">3</td><td class="r">16 a 33 dias</td></tr>
+      <tr><td>Visitou e não fechou</td><td>sem corretor</td><td class="r">1</td><td class="r">62 dias</td></tr>
+    </tbody>
+  </table>
+  <div class="box crit"><h4>A regra está escondendo as propostas</h4><p>Com o corte andando para frente, as 4 propostas do CRM saíram da conta. O painel comercial parece mais limpo do que a operação está. Repito a sugestão de 20/10: manter na conta quem já chegou a Qualificado, Visita ou Proposta, mesmo parado.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>8</span></div>
+</div>
+
+<!-- 9 · CRUZAMENTO -->
+<div class="pg">
+  <p class="tag">06 · Cruzamento mídia × comercial</p>
+  <h2>O que a Meta diz × o que o CRM confirma</h2>
+  <table class="cross">
+    <thead><tr><th style="width:28%">Da Meta</th><th style="width:30%">Do Clint</th><th>Resposta</th></tr></thead>
+    <tbody>
+      <tr><td>7 leads, CPL R$ 54,63</td><td>7 negócios novos, todos em contato (D1–D3)</td><td class="q">A integração entrega tudo. Ainda é cedo para julgar a qualidade desses leads.</td></tr>
+      <tr><td>Patrícia 2: 4 leads a R$ 28,22</td><td>Os 4 em contato. No histórico, foi o único criativo que gerou visita (2)</td><td class="q">É o melhor criativo em custo e em negócio. Base para o próximo.</td></tr>
+      <tr><td>"01": R$ 55,25 e nenhum lead</td><td>—</td><td class="q">Dinheiro sem retorno. Pausar.</td></tr>
+      <tr><td>CPL de R$ 26 para R$ 55 em 3 semanas</td><td>0 visitas agendadas, 20 qualificados abertos, 49 em D4</td><td class="q">Mesmo com mídia barata, o resultado seria igual. Escalar agora só aumenta a fila.</td></tr>
+    </tbody>
+  </table>
+  <div class="box warn"><h4>O volume também limita</h4><p>No ritmo atual, 7 leads por semana dão ~30 por mês. Pela referência de 100–150 leads por venda, isso é uma venda a cada 3 a 5 meses, com o comercial funcionando. Quando qualificado voltar a virar visita, aumentar o volume passa a ser o próximo passo.</p></div>
+  <div class="box info"><h4>Custo por resultado nesta semana</h4><p>R$ 382,38 investidos. Dos 7 leads da semana, nenhum qualificou ainda, e nenhuma visita foi agendada. Não dá para calcular custo por qualificado ou por visita, e o motivo é o funil, não a falta de dados.</p></div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>9</span></div>
+</div>
+
+<!-- 10 · PLANO -->
+<div class="pg">
+  <p class="tag">07 · Plano de ação</p>
+  <h2>5 ações até 09/11</h2>
+  <div class="act urgent"><div class="num">1</div>
+    <h4>Trocar prazo por rotina: revisão diária dos qualificados e do D4</h4>
+    <p>Prazo de 72h não funcionou: 31 qualificados geraram 0 visitas agendadas em 13 dias. Fazer 15 minutos por dia, lista na mão: para cada qualificado, a tentativa feita e o resultado registrados em nota. Depois os 49 em D4: concluir a cadência ou perder com motivo.</p>
+    <div class="m"><span>Quem</span>Gabriel com a Fernanda<span>Reavaliar</span>09/11 · meta de pelo menos 5 visitas agendadas</div>
+  </div>
+  <div class="act urgent"><div class="num">2</div>
+    <h4>Retorno para os 11 que já visitaram</h4>
+    <p>6 visitas realizadas, 4 propostas e 1 "visitou e não fechou", sem movimentação. 8 são do Ubaldo. Cada um sai com proposta, negociação ou motivo de perda registrado.</p>
+    <div class="m"><span>Quem</span>Ubaldo · Gabriel cobra<span>Reavaliar</span>05/11</div>
+  </div>
+  <div class="act urgent"><div class="num">3</div>
+    <h4>Distribuir os leads novos em rodízio</h4>
+    <p>Os 12 negócios novos desde 20/10 foram todos para a Fernanda, que tem 73 abertos contra 9 do Ubaldo. Configurar rodízio no Clint, condicionado ao Ubaldo zerar a ação 2.</p>
+    <div class="m"><span>Quem</span>Gabriel (configuração no Clint)<span>Reavaliar</span>09/11</div>
+  </div>
+  <div class="act"><div class="num">4</div>
+    <h4>Pausar o anúncio "01"</h4>
+    <p>R$ 98,70 desde 14/10 sem nenhum lead, 14% do gasto desta semana. A verba volta para os vídeos da Patrícia. Sem mudar o orçamento total.</p>
+    <div class="m"><span>Quem</span>Mídia / Provecta<span>Reavaliar</span>09/11</div>
+  </div>
+  <div class="act"><div class="num">5</div>
+    <h4>Preparar um criativo novo a partir do "Vídeo Patrícia 2"</h4>
+    <p>CTR da campanha caiu 32% e CPM subiu 19%. O Patrícia 2 teve o melhor CPL da semana (R$ 28,22) e é o único com visita no histórico. Subir o novo vídeo no mesmo conjunto, sem aumentar o orçamento.</p>
+    <div class="m"><span>Quem</span>Mídia / Provecta · roteiro com a Primor<span>Reavaliar</span>16/11</div>
+  </div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>10</span></div>
+</div>
+
+<!-- 11 · RODAPÉ -->
+<div class="pg foot">
+  <p class="tag">Notas · dados faltantes e fontes</p>
+  <h2>O que este relatório não sabe</h2>
+  <ul>
+    <li><b>Por que 12 qualificados tiveram a etapa reiniciada:</b> a API mostra só a data da última mudança de etapa, não o caminho. Pode ter sido uma automação ou uma mudança manual. Vale perguntar à Fernanda.</li>
+    <li><b>Visitas:</b> datas só em texto livre. Nenhuma visita foi marcada como agendada na semana. Se houve visita combinada por fora do CRM, ela não aparece aqui.</li>
+    <li><b>Edição do "Vídeo Patrícia 2" em 21/10:</b> a API registra a data, não o que mudou.</li>
+    <li><b>Disparo de WhatsApp:</b> não há sinal de campanha em massa nos dados (18 contatos novos desde 20/10).</li>
+    <li><b>Retrato do CRM:</b> extraído em 02/11, às 11h. Movimentações de 02/11 entram no retrato, mas não na semana.</li>
+    <li><b>Fora do escopo:</b> campanha de seguidores da Primor (R$ 70,60 na semana).</li>
+  </ul>
+  <h3>Fontes e critérios</h3>
+  <ul>
+    <li>Meta Marketing API v26.0 · campanha "Leads | Formulário | IlhaBela Itacimirim" · 26/10 a 01/11/2026 e 19/10 a 25/10/2026, fuso America/Bahia.</li>
+    <li>Clint CRM API · 302 negócios, 671 contatos · 179 excluídos pela regra da base antiga. O acompanhamento do plano de 20/10 compara os mesmos negócios nas extrações de 20/10 e 02/11.</li>
+    <li>Benchmarks: CPL R$ 30–60 · 100–150 leads por venda · aprendizado ~50 eventos em 7 dias · fadiga = frequência acima de 3,5–4 com CPM subindo.</li>
+  </ul>
+  <div class="sign">Provecta VGV — rigor e honestidade, não otimismo.</div>
+  <div class="pgno"><span>Ilha Bela · semanal 02/11</span><span>11</span></div>
+</div>
+
+</body>
+</html>
